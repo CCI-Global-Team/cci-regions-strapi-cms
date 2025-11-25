@@ -1,7 +1,14 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
+import MenuLogo from './extensions/logo/menu-logo.png';
 
 export default {
   config: {
+    auth: {
+      logo: MenuLogo,
+    },
+    menu: {
+      logo: MenuLogo,
+    },
     theme: {
       light: {
         colors: {
@@ -29,6 +36,16 @@ export default {
       },
     },
     locales: ['fr'],
+    translations: {
+      en: {
+        "Auth.form.welcome.title": "Welcome Admin 👋",
+        "Auth.form.welcome.subtitle": "Log in to your account",
+        "Auth.form.email.placeholder": "e.g. admin@joincci.org",
+        "HomePage.header.title": "Hello, {name}",
+        "HomePage.header.subtitle": "Welcome to CCI Canada's administration panel",
+      }
+    },
+    // Disable notifications about new Strapi releases
     notifications: { releases: false },
   },
   bootstrap(app: StrapiApp) {
