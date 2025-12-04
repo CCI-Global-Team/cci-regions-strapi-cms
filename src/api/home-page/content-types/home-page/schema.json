@@ -14,5 +14,16 @@
       "localized": true
     }
   },
-  "attributes": {}
+  "attributes": {
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.hero",
+      "repeatable": false
+    }
+  }
 }
