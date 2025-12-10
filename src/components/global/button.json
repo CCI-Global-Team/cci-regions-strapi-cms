@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_global_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outline",
+        "error",
+        "destructive",
+        "success"
+      ]
+    },
+    "iconText": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "classNames": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

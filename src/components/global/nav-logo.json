@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_global_nav_logos",
+  "info": {
+    "displayName": "NavLogo",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "height": {
+      "type": "integer"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "target": {
+      "type": "string",
+      "default": "_self"
+    },
+    "alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
