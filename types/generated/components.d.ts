@@ -28,41 +28,6 @@ export interface GlobalButton extends Struct.ComponentSchema {
   };
 }
 
-export interface GlobalNavItem extends Struct.ComponentSchema {
-  collectionName: 'components_global_nav_items';
-  info: {
-    displayName: 'NavItem';
-    icon: 'layout';
-  };
-  attributes: {
-    label: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
-    target: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'_self'>;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface GlobalNavLogo extends Struct.ComponentSchema {
-  collectionName: 'components_global_nav_logos';
-  info: {
-    displayName: 'NavLogo';
-    icon: 'layout';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    height: Schema.Attribute.Integer;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    target: Schema.Attribute.String & Schema.Attribute.DefaultTo<'_self'>;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-    width: Schema.Attribute.Integer;
-  };
-}
-
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -77,13 +42,25 @@ export interface SectionHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionUpcomingEvents extends Struct.ComponentSchema {
+  collectionName: 'components_section_upcoming_events';
+  info: {
+    displayName: 'UpcomingEvents';
+    icon: 'bulletList';
+  };
+  attributes: {
+    events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    viewAllText: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.button': GlobalButton;
-      'global.nav-item': GlobalNavItem;
-      'global.nav-logo': GlobalNavLogo;
       'section.hero': SectionHero;
+      'section.upcoming-events': SectionUpcomingEvents;
     }
   }
 }

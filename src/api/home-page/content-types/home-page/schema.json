@@ -24,6 +24,16 @@
       },
       "component": "section.hero",
       "repeatable": false
+    },
+    "upcomingEvents": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.upcoming-events",
+      "repeatable": false
     }
   }
 }
