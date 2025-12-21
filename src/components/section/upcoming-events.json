@@ -1,23 +1,22 @@
 {
   "collectionName": "components_section_upcoming_events",
   "info": {
-    "displayName": "UpcomingEvents",
+    "displayName": "ComingUp",
     "icon": "bulletList"
   },
   "options": {},
   "attributes": {
-    "events": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::event.event"
-    },
     "title": {
       "type": "string",
       "required": true
     },
-    "viewAllText": {
-      "type": "string",
-      "required": true
+    "subtitle": {
+      "type": "string"
+    },
+    "fixed_events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fixed-event.fixed-event"
     }
   },
   "config": {}

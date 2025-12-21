@@ -25,7 +25,7 @@
       "component": "section.hero",
       "repeatable": false
     },
-    "upcomingEvents": {
+    "comingUp": {
       "type": "component",
       "pluginOptions": {
         "i18n": {

@@ -45,13 +45,16 @@ export interface SectionHero extends Struct.ComponentSchema {
 export interface SectionUpcomingEvents extends Struct.ComponentSchema {
   collectionName: 'components_section_upcoming_events';
   info: {
-    displayName: 'UpcomingEvents';
+    displayName: 'ComingUp';
     icon: 'bulletList';
   };
   attributes: {
-    events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    fixed_events: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fixed-event.fixed-event'
+    >;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    viewAllText: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
