@@ -1,20 +1,12 @@
-/**
- * fixed-event service
- */
-
-import { factories } from '@strapi/strapi';
 import axios from 'axios';
 
-type DeepLConfig = {
-  apiKey: string;
-  endpoint: string;
-};
+const { createCoreService } = require('@strapi/strapi').factories;
 
-export default factories.createCoreService('api::fixed-event.fixed-event', ({ strapi }) => ({
+module.exports = createCoreService('api::deepl', ({ strapi }) => ({
   async translate(text: string, source = 'EN', target = 'FR') {
     if (!text) return text; // handle empty fields
 
-    const { apiKey, endpoint } = strapi.config.get('server.deepl') as DeepLConfig;
+    const { apiKey, endpoint } = strapi.config.get('server.deepl');
 
     const response = await axios.post(
       endpoint,

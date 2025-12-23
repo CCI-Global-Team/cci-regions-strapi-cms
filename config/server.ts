@@ -4,4 +4,8 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  deepl: {
+    apiKey: env('DEEPL_API_KEY'),
+    endpoint: env('DEEPL_API_URL'),
+  },
 });
