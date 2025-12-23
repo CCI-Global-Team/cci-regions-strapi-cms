@@ -1,5 +1,5 @@
 /**
- * fixed-event service
+ * deepl service
  */
 
 import { factories } from '@strapi/strapi';

@@ -72,6 +72,16 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "active": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": true
     }
   }
 }
