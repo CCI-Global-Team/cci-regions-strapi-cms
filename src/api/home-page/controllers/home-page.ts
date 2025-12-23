@@ -18,7 +18,7 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
     return {
       ...response,
       data: {
-        ...response.data,
+        ...response?.data,
         upcomingEvents: {
           title: 'Upcoming Events',
           viewAll: 'View all events',

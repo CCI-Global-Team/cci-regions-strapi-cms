@@ -43,6 +43,7 @@ export default {
         "Auth.form.email.placeholder": "e.g. admin@joincci.org",
         "HomePage.header.title": "Hello, {name}",
         "HomePage.header.subtitle": "Welcome to CCI Canada's administration panel",
+        "Auth.form.register.subtitle": "Setup your account"
       }
     },
     // Disable notifications about new Strapi releases
