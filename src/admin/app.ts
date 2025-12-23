@@ -35,7 +35,7 @@ export default {
         },
       },
     },
-    locales: ['fr'],
+    locales: ['fr-CA'],
     translations: {
       en: {
         "Auth.form.welcome.title": "Welcome Admin 👋",
