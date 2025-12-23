@@ -82,6 +82,14 @@
       },
       "required": true,
       "default": true
+    },
+    "action": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
