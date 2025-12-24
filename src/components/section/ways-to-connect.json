@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_section_ways_to_connects",
+  "info": {
+    "displayName": "WaysToConnect",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "global.connect-card",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

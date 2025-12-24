@@ -34,6 +34,17 @@
       },
       "component": "section.upcoming-events",
       "repeatable": false
+    },
+    "waysToConnect": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.ways-to-connect",
+      "repeatable": false,
+      "required": false
     }
   }
 }

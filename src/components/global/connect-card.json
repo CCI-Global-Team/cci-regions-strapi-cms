@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_global_connect_cards",
+  "info": {
+    "displayName": "ConnectCard",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "iconText": {
+      "type": "string",
+      "required": true
+    },
+    "ctaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "ctaUrl": {
+      "type": "string",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  },
+  "config": {}
+}
