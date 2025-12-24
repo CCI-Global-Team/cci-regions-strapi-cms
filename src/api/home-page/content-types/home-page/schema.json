@@ -45,6 +45,16 @@
       "component": "section.ways-to-connect",
       "repeatable": false,
       "required": false
+    },
+    "aboutCCI": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.about-cci",
+      "repeatable": false
     }
   }
 }

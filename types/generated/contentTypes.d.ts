@@ -674,6 +674,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    aboutCCI: Schema.Attribute.Component<'section.about-cci', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     comingUp: Schema.Attribute.Component<'section.upcoming-events', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

@@ -48,6 +48,20 @@ export interface GlobalConnectCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAboutCci extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_ccis';
+  info: {
+    displayName: 'AboutCCI';
+    icon: 'message';
+  };
+  attributes: {
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    ctaLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -97,6 +111,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
+      'section.about-cci': SectionAboutCci;
       'section.hero': SectionHero;
       'section.upcoming-events': SectionUpcomingEvents;
       'section.ways-to-connect': SectionWaysToConnect;
