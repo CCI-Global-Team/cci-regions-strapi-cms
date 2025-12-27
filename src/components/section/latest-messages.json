@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_section_latest_messages",
+  "info": {
+    "displayName": "LatestMessages",
+    "icon": "headphone"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -76,6 +76,18 @@ export interface SectionHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionLatestMessages extends Struct.ComponentSchema {
+  collectionName: 'components_section_latest_messages';
+  info: {
+    displayName: 'LatestMessages';
+    icon: 'headphone';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionUpcomingEvents extends Struct.ComponentSchema {
   collectionName: 'components_section_upcoming_events';
   info: {
@@ -113,6 +125,7 @@ declare module '@strapi/strapi' {
       'global.connect-card': GlobalConnectCard;
       'section.about-cci': SectionAboutCci;
       'section.hero': SectionHero;
+      'section.latest-messages': SectionLatestMessages;
       'section.upcoming-events': SectionUpcomingEvents;
       'section.ways-to-connect': SectionWaysToConnect;
     }

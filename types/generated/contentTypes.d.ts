@@ -716,6 +716,34 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
+  collectionName: 'sermons';
+  info: {
+    displayName: 'Sermon';
+    pluralName: 'sermons';
+    singularName: 'sermon';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::sermon.sermon'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1230,6 +1258,7 @@ declare module '@strapi/strapi' {
       'api::event.event': ApiEventEvent;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::sermon.sermon': ApiSermonSermon;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
