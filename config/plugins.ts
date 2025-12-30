@@ -18,22 +18,22 @@ export default ({ env }) => ({
           signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 60),
           Bucket: env("AWS_BUCKET"),
         },
-        rootPath: `web-cms-assets/${env("NODE_ENV")}`,
-      },
-      security: {
-        maxFileSize: 10 * 1024 * 1024, // 10 MB
-        allowedMimeTypes: [
-          "image/jpeg",
-          "image/png",
-          "image/webp",
-          "application/pdf",
-        ],
+        rootPath: `web-cms-assetsc/${env("NODE_ENV")}`,
       },
       actionOptions: {
         upload: {},
         uploadStream: {},
         delete: {},
       },
+    },
+    security: {
+      maxFileSize: 10 * 1024 * 1024, // 10 MB
+      allowedMimeTypes: [
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+        "application/pdf",
+      ],
     },
   },
 });

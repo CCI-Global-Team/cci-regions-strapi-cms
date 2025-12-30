@@ -73,6 +73,7 @@ export interface SectionHero extends Struct.ComponentSchema {
     background: Schema.Attribute.Media<'images' | 'videos'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 

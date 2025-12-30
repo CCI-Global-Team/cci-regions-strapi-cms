@@ -27,7 +27,13 @@ export default ({ env }) => [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: "strapi::cors",
+    config: {
+      headers: "*",
+      origin: "*",
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
