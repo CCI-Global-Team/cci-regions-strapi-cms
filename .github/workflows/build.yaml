@@ -32,7 +32,7 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Download dev task definition
         run: |
@@ -43,7 +43,7 @@ jobs:
         id: render-container
         with:
           task-definition: axios-ca-strapi-cms.json
-          container-name: canada-strapi-cms
+          container-name: axios-ca-strapi-cms
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
