@@ -11,8 +11,6 @@ export default ({ env }) => ({
       provider: "aws-s3",
       providerOptions: {
         s3Options: {
-          accessKeyId: env('AWS_ACCESS_KEY_ID'),
-          secretAccessKey: env('AWS_ACCESS_SECRET'),
           region: env('AWS_REGION'),
         },
         params: {
@@ -20,7 +18,7 @@ export default ({ env }) => ({
           signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 60),
           Bucket: env("AWS_BUCKET"),
         },
-        rootPath: `web-cms-assetsc/${env("NODE_ENV")}`,
+        rootPath: `web-cms-assets/${env("NODE_ENV")}`,
       },
       actionOptions: {
         upload: {},
