@@ -66,6 +66,16 @@
       },
       "component": "section.about-cci",
       "repeatable": false
+    },
+    "latestMessages": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.latest-messages",
+      "repeatable": false
     }
   }
 }
