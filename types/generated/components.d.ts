@@ -59,6 +59,7 @@ export interface SectionAboutCci extends Struct.ComponentSchema {
     ctaLabel: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 
@@ -86,6 +87,7 @@ export interface SectionLatestMessages extends Struct.ComponentSchema {
   attributes: {
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 
@@ -96,12 +98,15 @@ export interface SectionUpcomingEvents extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    fixed_events: Schema.Attribute.Relation<
+    fixedEvents: Schema.Attribute.Relation<
       'oneToMany',
       'api::fixed-event.fixed-event'
     >;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+    upcomingEventsTitle: Schema.Attribute.String;
+    viewAllEvents: Schema.Attribute.String;
   };
 }
 
@@ -116,6 +121,7 @@ export interface SectionWaysToConnect extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 

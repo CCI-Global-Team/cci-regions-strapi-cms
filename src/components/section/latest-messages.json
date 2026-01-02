@@ -10,6 +10,9 @@
       "type": "string",
       "required": true
     },
+    "titleBranded": {
+      "type": "string"
+    },
     "subtitle": {
       "type": "string"
     }

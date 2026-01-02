@@ -10,13 +10,22 @@
       "type": "string",
       "required": true
     },
+    "titleBranded": {
+      "type": "string"
+    },
     "subtitle": {
       "type": "string"
     },
-    "fixed_events": {
+    "fixedEvents": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::fixed-event.fixed-event"
+    },
+    "upcomingEventsTitle": {
+      "type": "string"
+    },
+    "viewAllEvents": {
+      "type": "string"
     }
   },
   "config": {}
