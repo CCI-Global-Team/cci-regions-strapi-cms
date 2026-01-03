@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "connect_pages",
+  "info": {
+    "singularName": "connect-page",
+    "pluralName": "connect-pages",
+    "displayName": "ConnectPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "pageName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "ConnectPage"
+    },
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.hero",
+      "repeatable": false,
+      "required": true
+    },
+    "ourPastors": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "aboutCCI": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.about-cci",
+      "repeatable": false
+    }
+  }
+}
