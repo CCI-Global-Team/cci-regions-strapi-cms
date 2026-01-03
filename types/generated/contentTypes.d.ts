@@ -716,7 +716,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: false;
         };
       }> &
-      Schema.Attribute.DefaultTo<'Homepage'>;
+      Schema.Attribute.DefaultTo<'HomePage'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -840,6 +840,78 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
         };
       }>;
     youtubeLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ApiStartHerePageStartHerePage extends Struct.SingleTypeSchema {
+  collectionName: 'start_here_pages';
+  info: {
+    displayName: 'StartHerePage';
+    pluralName: 'start-here-pages';
+    singularName: 'start-here-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    getConnected: Schema.Attribute.Component<
+      'section.steps-to-get-connected',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::start-here-page.start-here-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'StartHerePage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    purpose: Schema.Attribute.Component<'section.our-purpose', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    readyToVisit: Schema.Attribute.Component<'section.ready-to-visit', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatToExpect: Schema.Attribute.Component<'section.what-to-expect', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1363,6 +1435,7 @@ declare module '@strapi/strapi' {
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::sermon.sermon': ApiSermonSermon;
+      'api::start-here-page.start-here-page': ApiStartHerePageStartHerePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

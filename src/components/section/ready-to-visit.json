@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_ready_to_visits",
+  "info": {
+    "displayName": "ReadyToVisit",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
