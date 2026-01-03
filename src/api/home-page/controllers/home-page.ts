@@ -15,6 +15,12 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
       populate: '*',
     });
 
+    const sermons = await strapi.entityService.findMany('api::sermon.sermon', {
+      sort: { sermonDate: 'desc' },
+      limit: 3,
+      populate: '*',
+    });
+
     return {
       ...response,
       data: {
@@ -23,6 +29,10 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
           ...response?.data?.comingUp,
           upcomingEvents: events
         },
+        latestMessages: {
+          ...response?.data?.latestMessages,
+          sermons
+        }
       },
     };
   },
