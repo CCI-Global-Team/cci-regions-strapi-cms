@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface GlobalBadge extends Struct.ComponentSchema {
+  collectionName: 'components_global_badges';
+  info: {
+    displayName: 'Badge';
+    icon: 'pin';
+  };
+  attributes: {
+    icon: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GlobalButton extends Struct.ComponentSchema {
   collectionName: 'components_global_buttons';
   info: {
@@ -77,6 +89,20 @@ export interface SectionAboutCci extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAboutCciCanada extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_cci_canadas';
+  info: {
+    displayName: 'AboutCCICanada';
+    icon: 'crop';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    content: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -86,6 +112,7 @@ export interface SectionHero extends Struct.ComponentSchema {
   attributes: {
     actions: Schema.Attribute.Component<'global.button', true>;
     background: Schema.Attribute.Media<'images' | 'videos'>;
+    badge: Schema.Attribute.Component<'global.badge', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
@@ -102,6 +129,19 @@ export interface SectionLatestMessages extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface SectionMissionVision extends Struct.ComponentSchema {
+  collectionName: 'components_section_mission_visions';
+  info: {
+    displayName: 'MissionVision';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    mision: Schema.Attribute.Component<'global.text-block', false>;
+    vision: Schema.Attribute.Component<'global.text-block', true>;
   };
 }
 
@@ -193,12 +233,15 @@ export interface SectionWhatToExpect extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'global.badge': GlobalBadge;
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
+      'section.about-cci-canada': SectionAboutCciCanada;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
+      'section.mission-vision': SectionMissionVision;
       'section.our-purpose': SectionOurPurpose;
       'section.ready-to-visit': SectionReadyToVisit;
       'section.steps-to-get-connected': SectionStepsToGetConnected;

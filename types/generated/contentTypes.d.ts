@@ -446,14 +446,35 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    aboutCCICanada: Schema.Attribute.Component<
+      'section.about-cci-canada',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::about-page.about-page'
     >;
+    missionVision: Schema.Attribute.Component<'section.mission-vision', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     pageName: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.SetPluginOptions<{
@@ -545,9 +566,10 @@ export interface ApiConnectPageConnectPage extends Struct.SingleTypeSchema {
         };
       }>;
     pageName: Schema.Attribute.String &
+      Schema.Attribute.Private &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }> &
       Schema.Attribute.DefaultTo<'ConnectPage'>;
@@ -864,6 +886,12 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::pastor.pastor'>;
+    meetingLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     nickname: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

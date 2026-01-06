@@ -24,6 +24,36 @@
         }
       },
       "default": "AboutPage"
+    },
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.hero",
+      "repeatable": false
+    },
+    "missionVision": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.mission-vision",
+      "repeatable": false
+    },
+    "aboutCCICanada": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.about-cci-canada",
+      "repeatable": false
     }
   }
 }

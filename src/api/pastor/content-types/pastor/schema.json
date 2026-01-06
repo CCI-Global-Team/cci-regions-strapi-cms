@@ -69,6 +69,14 @@
           "localized": true
         }
       }
+    },
+    "meetingLink": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }

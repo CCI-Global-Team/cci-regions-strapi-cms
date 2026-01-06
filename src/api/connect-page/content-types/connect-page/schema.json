@@ -17,9 +17,10 @@
   "attributes": {
     "pageName": {
       "type": "string",
+      "private": true,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "default": "ConnectPage"

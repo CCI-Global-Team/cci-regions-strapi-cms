@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_section_about_cci_canadas",
+  "info": {
+    "displayName": "AboutCCICanada",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleBranded": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -28,6 +28,11 @@
       "type": "component",
       "component": "global.button",
       "repeatable": true
+    },
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
     }
   },
   "config": {}
