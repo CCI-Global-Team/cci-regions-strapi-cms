@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_section_what_to_expects",
+  "info": {
+    "displayName": "WhatToExpect",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "component": "global.connect-card",
+      "repeatable": true,
+      "required": false
+    }
+  },
+  "config": {}
+}

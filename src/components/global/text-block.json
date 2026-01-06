@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_text_blocks",
+  "info": {
+    "displayName": "TextBlock",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleBranded": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "config": {}
+}

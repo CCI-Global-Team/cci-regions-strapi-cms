@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface GlobalBadge extends Struct.ComponentSchema {
+  collectionName: 'components_global_badges';
+  info: {
+    displayName: 'Badge';
+    icon: 'pin';
+  };
+  attributes: {
+    icon: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GlobalButton extends Struct.ComponentSchema {
   collectionName: 'components_global_buttons';
   info: {
@@ -31,20 +43,34 @@ export interface GlobalButton extends Struct.ComponentSchema {
 export interface GlobalConnectCard extends Struct.ComponentSchema {
   collectionName: 'components_global_connect_cards';
   info: {
-    displayName: 'ConnectCard';
+    displayName: 'Card';
     icon: 'connector';
   };
   attributes: {
-    ctaLabel: Schema.Attribute.String & Schema.Attribute.Required;
-    ctaUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    iconText: Schema.Attribute.String & Schema.Attribute.Required;
+    iconText: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
     order: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+  };
+}
+
+export interface GlobalTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_global_text_blocks';
+  info: {
+    displayName: 'TextBlock';
+    icon: 'quote';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 
@@ -63,6 +89,20 @@ export interface SectionAboutCci extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAboutCciCanada extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_cci_canadas';
+  info: {
+    displayName: 'AboutCCICanada';
+    icon: 'crop';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    content: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -72,6 +112,7 @@ export interface SectionHero extends Struct.ComponentSchema {
   attributes: {
     actions: Schema.Attribute.Component<'global.button', true>;
     background: Schema.Attribute.Media<'images' | 'videos'>;
+    badge: Schema.Attribute.Component<'global.badge', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
@@ -88,6 +129,57 @@ export interface SectionLatestMessages extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface SectionMissionVision extends Struct.ComponentSchema {
+  collectionName: 'components_section_mission_visions';
+  info: {
+    displayName: 'MissionVision';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    mision: Schema.Attribute.Component<'global.text-block', false>;
+    vision: Schema.Attribute.Component<'global.text-block', true>;
+  };
+}
+
+export interface SectionOurPurpose extends Struct.ComponentSchema {
+  collectionName: 'components_section_our_purposes';
+  info: {
+    displayName: 'OurPurpose';
+    icon: 'check';
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'global.text-block', true>;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface SectionReadyToVisit extends Struct.ComponentSchema {
+  collectionName: 'components_section_ready_to_visits';
+  info: {
+    displayName: 'ReadyToVisit';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'global.button', false>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
+export interface SectionStepsToGetConnected extends Struct.ComponentSchema {
+  collectionName: 'components_section_steps_to_get_connecteds';
+  info: {
+    displayName: 'StepsToGetConnected';
+    icon: 'oneToMany';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'global.connect-card', true>;
+    title: Schema.Attribute.Component<'global.text-block', true>;
   };
 }
 
@@ -125,16 +217,37 @@ export interface SectionWaysToConnect extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionWhatToExpect extends Struct.ComponentSchema {
+  collectionName: 'components_section_what_to_expects';
+  info: {
+    displayName: 'WhatToExpect';
+    icon: 'collapse';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'global.connect-card', true>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'global.badge': GlobalBadge;
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
+      'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
+      'section.about-cci-canada': SectionAboutCciCanada;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
+      'section.mission-vision': SectionMissionVision;
+      'section.our-purpose': SectionOurPurpose;
+      'section.ready-to-visit': SectionReadyToVisit;
+      'section.steps-to-get-connected': SectionStepsToGetConnected;
       'section.upcoming-events': SectionUpcomingEvents;
       'section.ways-to-connect': SectionWaysToConnect;
+      'section.what-to-expect': SectionWhatToExpect;
     }
   }
 }

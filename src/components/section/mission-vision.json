@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_section_mission_visions",
+  "info": {
+    "displayName": "MissionVision",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "mision": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "vision": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

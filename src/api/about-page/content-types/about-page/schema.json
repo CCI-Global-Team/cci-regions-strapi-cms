@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "home_pages",
+  "collectionName": "about_pages",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "HomePage"
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "AboutPage"
   },
   "options": {
     "draftAndPublish": true
@@ -20,11 +20,10 @@
       "private": true,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "default": "HomePage",
-      "required": false
+      "default": "AboutPage"
     },
     "header": {
       "type": "component",
@@ -36,45 +35,24 @@
       "component": "section.hero",
       "repeatable": false
     },
-    "comingUp": {
+    "missionVision": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.upcoming-events",
+      "component": "section.mission-vision",
       "repeatable": false
     },
-    "waysToConnect": {
+    "aboutCCICanada": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.ways-to-connect",
-      "repeatable": false,
-      "required": false
-    },
-    "aboutCCI": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.about-cci",
-      "repeatable": false
-    },
-    "latestMessages": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.latest-messages",
+      "component": "section.about-cci-canada",
       "repeatable": false
     }
   }

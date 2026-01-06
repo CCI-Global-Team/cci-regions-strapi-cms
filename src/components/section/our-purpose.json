@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_section_our_purposes",
+  "info": {
+    "displayName": "OurPurpose",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

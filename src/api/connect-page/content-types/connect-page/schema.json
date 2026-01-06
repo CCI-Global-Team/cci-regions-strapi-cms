@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "home_pages",
+  "collectionName": "connect_pages",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "HomePage"
+    "singularName": "connect-page",
+    "pluralName": "connect-pages",
+    "displayName": "ConnectPage"
   },
   "options": {
     "draftAndPublish": true
@@ -23,8 +23,7 @@
           "localized": false
         }
       },
-      "default": "HomePage",
-      "required": false
+      "default": "ConnectPage"
     },
     "header": {
       "type": "component",
@@ -34,28 +33,18 @@
         }
       },
       "component": "section.hero",
-      "repeatable": false
-    },
-    "comingUp": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.upcoming-events",
-      "repeatable": false
-    },
-    "waysToConnect": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.ways-to-connect",
       "repeatable": false,
-      "required": false
+      "required": true
+    },
+    "ourPastors": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.text-block",
+      "repeatable": false
     },
     "aboutCCI": {
       "type": "component",
@@ -65,16 +54,6 @@
         }
       },
       "component": "section.about-cci",
-      "repeatable": false
-    },
-    "latestMessages": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.latest-messages",
       "repeatable": false
     }
   }

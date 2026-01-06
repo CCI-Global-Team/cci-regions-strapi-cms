@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "home_pages",
+  "collectionName": "start_here_pages",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "HomePage"
+    "singularName": "start-here-page",
+    "pluralName": "start-here-pages",
+    "displayName": "StartHerePage"
   },
   "options": {
     "draftAndPublish": true
@@ -23,8 +23,7 @@
           "localized": false
         }
       },
-      "default": "HomePage",
-      "required": false
+      "default": "StartHerePage"
     },
     "header": {
       "type": "component",
@@ -36,45 +35,44 @@
       "component": "section.hero",
       "repeatable": false
     },
-    "comingUp": {
+    "purpose": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.upcoming-events",
+      "component": "section.our-purpose",
       "repeatable": false
     },
-    "waysToConnect": {
+    "whatToExpect": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.ways-to-connect",
-      "repeatable": false,
-      "required": false
-    },
-    "aboutCCI": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.about-cci",
+      "component": "section.what-to-expect",
       "repeatable": false
     },
-    "latestMessages": {
+    "getConnected": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.latest-messages",
+      "component": "section.steps-to-get-connected",
+      "repeatable": false
+    },
+    "readyToVisit": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.ready-to-visit",
       "repeatable": false
     }
   }

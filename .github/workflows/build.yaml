@@ -50,5 +50,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-container.outputs.task-definition }}
-          service: axios-ca-strapi-cms
+          service: axios-ca-strapi-cms-service-6ddpe39u
           cluster: axios

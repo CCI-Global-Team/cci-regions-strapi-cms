@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_steps_to_get_connecteds",
+  "info": {
+    "displayName": "StepsToGetConnected",
+    "icon": "oneToMany"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": true
+    },
+    "items": {
+      "type": "component",
+      "component": "global.connect-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
