@@ -12,6 +12,10 @@ export default ({ env }) => ({
       providerOptions: {
         s3Options: {
           region: env('AWS_REGION'),
+          credentials: {
+            accessKeyId: env('AWS_ACCESS_KEY_ID'),
+            secretAccessKey: env('AWS_ACCESS_SECRET'),
+          }
         },
         params: {
           signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 60),
