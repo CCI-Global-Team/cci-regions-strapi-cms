@@ -1,3 +1,12 @@
+const loadS3Credentials = (env: string, accessKeyId: string, secretAccessKey: string) => {
+  if (env === 'production')
+    return {}
+
+  return {
+    credentials: { accessKeyId, secretAccessKey }
+  }
+}
+
 export default ({ env }) => ({
   i18n: {
     enabled: true,
@@ -12,10 +21,11 @@ export default ({ env }) => ({
       providerOptions: {
         s3Options: {
           region: env('AWS_REGION'),
-          credentials: {
-            accessKeyId: env('AWS_ACCESS_KEY_ID'),
-            secretAccessKey: env('AWS_ACCESS_SECRET'),
-          }
+          ...loadS3Credentials(
+            env('NODE_ENV'),
+            env('AWS_ACCESS_KEY_ID'),
+            env('AWS_ACCESS_SECRET')
+          )
         },
         params: {
           signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 60),
