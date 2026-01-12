@@ -110,10 +110,11 @@ export interface SectionContact extends Struct.ComponentSchema {
     icon: 'pinMap';
   };
   attributes: {
+    ctaLabel: Schema.Attribute.String;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
     fullAddress: Schema.Attribute.String & Schema.Attribute.Required;
+    googleEmbedHtml: Schema.Attribute.Text;
     googleMapUrl: Schema.Attribute.String;
-    googlePlaceId: Schema.Attribute.String;
     phone: Schema.Attribute.String;
     socialLinks: Schema.Attribute.JSON;
     subtitleOne: Schema.Attribute.String;

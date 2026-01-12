@@ -27,8 +27,8 @@
     "googleMapUrl": {
       "type": "string"
     },
-    "googlePlaceId": {
-      "type": "string"
+    "googleEmbedHtml": {
+      "type": "text"
     },
     "titleTwo": {
       "type": "string",
@@ -36,6 +36,9 @@
     },
     "socialLinks": {
       "type": "json"
+    },
+    "ctaLabel": {
+      "type": "string"
     }
   },
   "config": {}
