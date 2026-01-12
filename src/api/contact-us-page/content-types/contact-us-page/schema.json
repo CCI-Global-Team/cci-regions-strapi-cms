@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_us_pages",
+  "info": {
+    "singularName": "contact-us-page",
+    "pluralName": "contact-us-pages",
+    "displayName": "ContactUsPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "pageName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Contact Us"
+    },
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.hero",
+      "repeatable": false
+    },
+    "details": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.contact",
+      "repeatable": false,
+      "required": true
+    },
+    "planYourVisit": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.plan-your-visit",
+      "repeatable": false
+    }
+  }
+}

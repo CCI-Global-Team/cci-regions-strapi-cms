@@ -103,6 +103,25 @@ export interface SectionAboutCciCanada extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionContact extends Struct.ComponentSchema {
+  collectionName: 'components_section_contacts';
+  info: {
+    displayName: 'Contact';
+    icon: 'pinMap';
+  };
+  attributes: {
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullAddress: Schema.Attribute.String & Schema.Attribute.Required;
+    googleMapUrl: Schema.Attribute.String;
+    googlePlaceId: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.JSON;
+    subtitleOne: Schema.Attribute.String;
+    titleOne: Schema.Attribute.String & Schema.Attribute.Required;
+    titleTwo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -156,6 +175,20 @@ export interface SectionOurPurpose extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface SectionPlanYourVisit extends Struct.ComponentSchema {
+  collectionName: 'components_section_plan_your_visits';
+  info: {
+    displayName: 'PlanYourVisit';
+    icon: 'cursor';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'global.button', true> &
+      Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -239,10 +272,12 @@ declare module '@strapi/strapi' {
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
       'section.about-cci-canada': SectionAboutCciCanada;
+      'section.contact': SectionContact;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
       'section.mission-vision': SectionMissionVision;
       'section.our-purpose': SectionOurPurpose;
+      'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
       'section.steps-to-get-connected': SectionStepsToGetConnected;
       'section.upcoming-events': SectionUpcomingEvents;

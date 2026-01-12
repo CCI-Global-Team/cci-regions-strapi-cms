@@ -580,6 +580,66 @@ export interface ApiConnectPageConnectPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_us_pages';
+  info: {
+    displayName: 'ContactUsPage';
+    pluralName: 'contact-us-pages';
+    singularName: 'contact-us-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    details: Schema.Attribute.Component<'section.contact', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us-page.contact-us-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Contact Us'>;
+    planYourVisit: Schema.Attribute.Component<
+      'section.plan-your-visit',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -1624,6 +1684,7 @@ declare module '@strapi/strapi' {
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
+      'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::event.event': ApiEventEvent;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::home-page.home-page': ApiHomePageHomePage;

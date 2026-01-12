@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_section_contacts",
+  "info": {
+    "displayName": "Contact",
+    "icon": "pinMap"
+  },
+  "options": {},
+  "attributes": {
+    "titleOne": {
+      "type": "string",
+      "required": true
+    },
+    "subtitleOne": {
+      "type": "string"
+    },
+    "fullAddress": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "googleMapUrl": {
+      "type": "string"
+    },
+    "googlePlaceId": {
+      "type": "string"
+    },
+    "titleTwo": {
+      "type": "string",
+      "required": true
+    },
+    "socialLinks": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}
