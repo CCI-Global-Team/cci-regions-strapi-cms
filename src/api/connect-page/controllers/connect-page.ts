@@ -10,12 +10,12 @@ export default factories.createCoreController('api::connect-page.connect-page', 
     const response = await super.find(ctx);
 
     const pastors = await strapi.entityService.findMany('api::pastor.pastor', {
-      // filters: {
-      //   publishedAt: {
-      //     $notNull: true,
-      //   },
-      // },
-      sort: { createdAt: 'asc' },
+      filters: {
+        meetingLink: {
+          $notNull: true,
+        },
+      },
+      sort: { order: 'asc' },
       populate: '*',
     });
 

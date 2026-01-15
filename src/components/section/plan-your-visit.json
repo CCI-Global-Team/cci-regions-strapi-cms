@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_section_plan_your_visits",
+  "info": {
+    "displayName": "PlanYourVisit",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": true,
+      "required": true
+    }
+  },
+  "config": {}
+}

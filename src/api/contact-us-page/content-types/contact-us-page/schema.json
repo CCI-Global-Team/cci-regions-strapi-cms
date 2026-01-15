@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "about_pages",
+  "collectionName": "contact_us_pages",
   "info": {
-    "singularName": "about-page",
-    "pluralName": "about-pages",
-    "displayName": "AboutPage"
+    "singularName": "contact-us-page",
+    "pluralName": "contact-us-pages",
+    "displayName": "ContactUsPage"
   },
   "options": {
     "draftAndPublish": true
@@ -17,13 +17,12 @@
   "attributes": {
     "pageName": {
       "type": "string",
-      "private": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "default": "AboutPage"
+      "default": "Contact Us"
     },
     "header": {
       "type": "component",
@@ -35,44 +34,25 @@
       "component": "section.hero",
       "repeatable": false
     },
-    "missionVision": {
+    "details": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.mission-vision",
-      "repeatable": false
+      "component": "section.contact",
+      "repeatable": false,
+      "required": true
     },
-    "aboutCCICanada": {
+    "planYourVisit": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "section.about-cci-canada",
-      "repeatable": false
-    },
-    "aboutPastors": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.about-pastors",
-      "repeatable": false
-    },
-    "ourApproach": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "section.our-approach",
+      "component": "section.plan-your-visit",
       "repeatable": false
     }
   }

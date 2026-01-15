@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_section_about_pastors",
+  "info": {
+    "displayName": "AboutPastors",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ctaButton": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

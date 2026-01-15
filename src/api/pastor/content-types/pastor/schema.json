@@ -7,7 +7,8 @@
     "displayName": "Pastor"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": true,
+    "privateAttributes": ["createdBy", "updatedBy"]
   },
   "pluginOptions": {
     "i18n": {
@@ -62,7 +63,7 @@
         "images"
       ]
     },
-    "title": {
+    "roleTitle": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -75,6 +76,14 @@
       "pluginOptions": {
         "i18n": {
           "localized": false
+        }
+      }
+    },
+    "order": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
         }
       }
     }

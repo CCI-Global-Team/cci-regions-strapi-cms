@@ -103,6 +103,40 @@ export interface SectionAboutCciCanada extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAboutPastors extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_pastors';
+  info: {
+    displayName: 'AboutPastors';
+    icon: 'user';
+  };
+  attributes: {
+    ctaButton: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    logo: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionContact extends Struct.ComponentSchema {
+  collectionName: 'components_section_contacts';
+  info: {
+    displayName: 'Contact';
+    icon: 'pinMap';
+  };
+  attributes: {
+    ctaLabel: Schema.Attribute.String;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullAddress: Schema.Attribute.String & Schema.Attribute.Required;
+    googleEmbedHtml: Schema.Attribute.Text;
+    googleMapUrl: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    socialLinks: Schema.Attribute.JSON;
+    subtitleOne: Schema.Attribute.String;
+    titleOne: Schema.Attribute.String & Schema.Attribute.Required;
+    titleTwo: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -145,6 +179,27 @@ export interface SectionMissionVision extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionOurApproach extends Struct.ComponentSchema {
+  collectionName: 'components_section_our_approaches';
+  info: {
+    displayName: 'ourApproach';
+    icon: 'command';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false> &
+      Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'global.connect-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionOurPurpose extends Struct.ComponentSchema {
   collectionName: 'components_section_our_purposes';
   info: {
@@ -156,6 +211,20 @@ export interface SectionOurPurpose extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface SectionPlanYourVisit extends Struct.ComponentSchema {
+  collectionName: 'components_section_plan_your_visits';
+  info: {
+    displayName: 'PlanYourVisit';
+    icon: 'cursor';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'global.button', true> &
+      Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -239,10 +308,14 @@ declare module '@strapi/strapi' {
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
       'section.about-cci-canada': SectionAboutCciCanada;
+      'section.about-pastors': SectionAboutPastors;
+      'section.contact': SectionContact;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
       'section.mission-vision': SectionMissionVision;
+      'section.our-approach': SectionOurApproach;
       'section.our-purpose': SectionOurPurpose;
+      'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
       'section.steps-to-get-connected': SectionStepsToGetConnected;
       'section.upcoming-events': SectionUpcomingEvents;
