@@ -54,6 +54,26 @@
       },
       "component": "section.about-cci-canada",
       "repeatable": false
+    },
+    "aboutPastors": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.about-pastors",
+      "repeatable": false
+    },
+    "ourApproach": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.our-approach",
+      "repeatable": false
     }
   }
 }

@@ -455,6 +455,12 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    aboutPastors: Schema.Attribute.Component<'section.about-pastors', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -470,6 +476,12 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
       'api::about-page.about-page'
     >;
     missionVision: Schema.Attribute.Component<'section.mission-vision', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ourApproach: Schema.Attribute.Component<'section.our-approach', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -920,6 +932,7 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
+    privateAttributes: ['createdBy', 'updatedBy'];
   };
   pluginOptions: {
     i18n: {
@@ -958,6 +971,12 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     picture: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -972,7 +991,7 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
       }> &
       Schema.Attribute.DefaultTo<'Pastor'>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
+    roleTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

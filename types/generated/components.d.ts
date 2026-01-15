@@ -103,6 +103,20 @@ export interface SectionAboutCciCanada extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionAboutPastors extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_pastors';
+  info: {
+    displayName: 'AboutPastors';
+    icon: 'user';
+  };
+  attributes: {
+    ctaButton: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    logo: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionContact extends Struct.ComponentSchema {
   collectionName: 'components_section_contacts';
   info: {
@@ -162,6 +176,27 @@ export interface SectionMissionVision extends Struct.ComponentSchema {
     backgroundImage: Schema.Attribute.Media<'images'>;
     mision: Schema.Attribute.Component<'global.text-block', false>;
     vision: Schema.Attribute.Component<'global.text-block', true>;
+  };
+}
+
+export interface SectionOurApproach extends Struct.ComponentSchema {
+  collectionName: 'components_section_our_approaches';
+  info: {
+    displayName: 'ourApproach';
+    icon: 'command';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false> &
+      Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'global.connect-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -273,10 +308,12 @@ declare module '@strapi/strapi' {
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
       'section.about-cci-canada': SectionAboutCciCanada;
+      'section.about-pastors': SectionAboutPastors;
       'section.contact': SectionContact;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
       'section.mission-vision': SectionMissionVision;
+      'section.our-approach': SectionOurApproach;
       'section.our-purpose': SectionOurPurpose;
       'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
