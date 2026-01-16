@@ -174,7 +174,7 @@ export interface SectionMissionVision extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
-    mision: Schema.Attribute.Component<'global.text-block', false>;
+    mission: Schema.Attribute.Component<'global.text-block', false>;
     vision: Schema.Attribute.Component<'global.text-block', true>;
   };
 }

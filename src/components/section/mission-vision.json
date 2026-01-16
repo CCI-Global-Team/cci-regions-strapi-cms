@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "mision": {
+    "mission": {
       "type": "component",
       "component": "global.text-block",
       "repeatable": false
