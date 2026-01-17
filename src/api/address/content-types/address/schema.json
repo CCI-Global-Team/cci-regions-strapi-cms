@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "pastors",
+  "collectionName": "addresses",
   "info": {
-    "singularName": "pastor",
-    "pluralName": "pastors",
-    "displayName": "Pastor"
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "Address"
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +15,7 @@
     }
   },
   "attributes": {
-    "prefix": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "default": "Pastor"
-    },
-    "firstName": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -33,7 +24,7 @@
       },
       "required": true
     },
-    "lastName": {
+    "streetLine1": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -42,7 +33,7 @@
       },
       "required": true
     },
-    "nickname": {
+    "streetLine2": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -50,19 +41,62 @@
         }
       }
     },
-    "picture": {
-      "type": "media",
+    "city": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
+        }
+      }
+    },
+    "province": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
         }
       },
-      "multiple": false,
-      "allowedTypes": [
-        "images"
+      "required": true,
+      "enum": [
+        "Alberta",
+        "British Columbia",
+        "Manitoba",
+        "New Brunswick",
+        "Newfoundland and Labrador",
+        "Northwest Territories",
+        "Nova Scotia",
+        "Nunavut",
+        "Ontario",
+        "Prince Edward Island",
+        "Quebec",
+        "Saskatchewan",
+        "Yukon"
       ]
     },
-    "roleTitle": {
+    "postalCode": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "maxLength": 6,
+      "required": true
+    },
+    "country": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "default": "Canada",
+      "enum": [
+        "Canada"
+      ]
+    },
+    "googleMapUrl": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -70,27 +104,13 @@
         }
       }
     },
-    "meetingLink": {
+    "fullAddress": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "order": {
-      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
-    },
-    "campus": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::campus.campus",
-      "mappedBy": "resident"
     }
   }
 }

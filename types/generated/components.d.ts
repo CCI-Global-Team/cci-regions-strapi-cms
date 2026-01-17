@@ -166,6 +166,22 @@ export interface SectionLatestMessages extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionLocations extends Struct.ComponentSchema {
+  collectionName: 'components_section_locations';
+  info: {
+    displayName: 'Locations';
+    icon: 'chartPie';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    campusSubtitle: Schema.Attribute.Text;
+    campusTabLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    cellChurchSubtitle: Schema.Attribute.Text;
+    cellChurchTabLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionMissionVision extends Struct.ComponentSchema {
   collectionName: 'components_section_mission_visions';
   info: {
@@ -312,6 +328,7 @@ declare module '@strapi/strapi' {
       'section.contact': SectionContact;
       'section.hero': SectionHero;
       'section.latest-messages': SectionLatestMessages;
+      'section.locations': SectionLocations;
       'section.mission-vision': SectionMissionVision;
       'section.our-approach': SectionOurApproach;
       'section.our-purpose': SectionOurPurpose;

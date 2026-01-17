@@ -119,6 +119,17 @@
           "localized": true
         }
       }
+    },
+    "campus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campus.campus",
+      "inversedBy": "events"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
     }
   }
 }
