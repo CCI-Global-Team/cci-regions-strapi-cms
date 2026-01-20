@@ -117,6 +117,26 @@ export interface SectionAboutPastors extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionBecomeAMember extends Struct.ComponentSchema {
+  collectionName: 'components_section_become_a_members';
+  info: {
+    displayName: 'BecomeAMember';
+    icon: 'earth';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    ctaButton: Schema.Attribute.Component<'global.button', false>;
+    steps: Schema.Attribute.Component<'global.connect-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionContact extends Struct.ComponentSchema {
   collectionName: 'components_section_contacts';
   info: {
@@ -150,6 +170,19 @@ export interface SectionHero extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface SectionJoinServiceUnit extends Struct.ComponentSchema {
+  collectionName: 'components_section_join_service_units';
+  info: {
+    displayName: 'JoinServiceUnit';
+    icon: 'check';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    ctaButton: Schema.Attribute.Component<'global.button', false>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
   };
 }
 
@@ -325,8 +358,10 @@ declare module '@strapi/strapi' {
       'section.about-cci': SectionAboutCci;
       'section.about-cci-canada': SectionAboutCciCanada;
       'section.about-pastors': SectionAboutPastors;
+      'section.become-a-member': SectionBecomeAMember;
       'section.contact': SectionContact;
       'section.hero': SectionHero;
+      'section.join-service-unit': SectionJoinServiceUnit;
       'section.latest-messages': SectionLatestMessages;
       'section.locations': SectionLocations;
       'section.mission-vision': SectionMissionVision;

@@ -1091,6 +1091,70 @@ export interface ApiFixedEventFixedEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGetInvolvedPageGetInvolvedPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'get_involved_pages';
+  info: {
+    displayName: 'GetInvolvedPage';
+    pluralName: 'get-involved-pages';
+    singularName: 'get-involved-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    becomeAMember: Schema.Attribute.Component<
+      'section.become-a-member',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    joinServiceUnit: Schema.Attribute.Component<
+      'section.join-service-unit',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::get-involved-page.get-involved-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'GetInvolvedPage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -1481,6 +1545,53 @@ export interface ApiStartHerePageStartHerePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+  };
+}
+
+export interface ApiUnitUnit extends Struct.CollectionTypeSchema {
+  collectionName: 'units';
+  info: {
+    displayName: 'Unit';
+    pluralName: 'units';
+    singularName: 'unit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::unit.unit'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2002,11 +2113,13 @@ declare module '@strapi/strapi' {
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::event.event': ApiEventEvent;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
+      'api::get-involved-page.get-involved-page': ApiGetInvolvedPageGetInvolvedPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::locations-page.locations-page': ApiLocationsPageLocationsPage;
       'api::pastor.pastor': ApiPastorPastor;
       'api::sermon.sermon': ApiSermonSermon;
       'api::start-here-page.start-here-page': ApiStartHerePageStartHerePage;
+      'api::unit.unit': ApiUnitUnit;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

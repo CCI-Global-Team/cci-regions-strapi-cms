@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_section_become_a_members",
+  "info": {
+    "displayName": "BecomeAMember",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "steps": {
+      "type": "component",
+      "component": "global.connect-card",
+      "repeatable": true,
+      "min": 1
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

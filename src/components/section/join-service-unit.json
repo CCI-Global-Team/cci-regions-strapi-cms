@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_section_join_service_units",
+  "info": {
+    "displayName": "JoinServiceUnit",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
