@@ -552,6 +552,12 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::address.address'
     >;
+    locationName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
