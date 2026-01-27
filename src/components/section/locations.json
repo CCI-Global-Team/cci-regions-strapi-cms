@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_section_locations",
+  "info": {
+    "displayName": "Locations",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "campusSubtitle": {
+      "type": "text"
+    },
+    "cellChurchSubtitle": {
+      "type": "text"
+    },
+    "campusTabLabel": {
+      "type": "string",
+      "required": true
+    },
+    "cellChurchTabLabel": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
