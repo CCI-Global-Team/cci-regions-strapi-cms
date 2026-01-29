@@ -635,14 +635,120 @@ export interface ApiAnnouncementAnnouncement
     };
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['general', 'event', 'opportunity', 'workshop', 'academic']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'general'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    expireAt: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::announcement.announcement'
     >;
+    locations: Schema.Attribute.Relation<'manyToMany', 'api::campus.campus'>;
+    message: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    priority: Schema.Attribute.Enumeration<
+      ['none', 'low', 'medium', 'high', 'urgent']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'none'>;
+    publishAt: Schema.Attribute.DateTime &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ApiAnnouncementsPageAnnouncementsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'announcements_pages';
+  info: {
+    displayName: 'AnnouncementsPage';
+    pluralName: 'announcements-pages';
+    singularName: 'announcements-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::announcements-page.announcements-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'AnnouncementsPage'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -681,6 +787,10 @@ export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    announcements: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::announcement.announcement'
+    >;
     bannerImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -2114,6 +2224,7 @@ declare module '@strapi/strapi' {
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::address.address': ApiAddressAddress;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
+      'api::announcements-page.announcements-page': ApiAnnouncementsPageAnnouncementsPage;
       'api::campus.campus': ApiCampusCampus;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
