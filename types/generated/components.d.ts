@@ -61,6 +61,18 @@ export interface GlobalConnectCard extends Struct.ComponentSchema {
   };
 }
 
+export interface GlobalText extends Struct.ComponentSchema {
+  collectionName: 'components_global_texts';
+  info: {
+    displayName: 'Text';
+    icon: 'italic';
+  };
+  attributes: {
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GlobalTextBlock extends Struct.ComponentSchema {
   collectionName: 'components_global_text_blocks';
   info: {
@@ -354,6 +366,7 @@ declare module '@strapi/strapi' {
       'global.badge': GlobalBadge;
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
+      'global.text': GlobalText;
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
       'section.about-cci-canada': SectionAboutCciCanada;

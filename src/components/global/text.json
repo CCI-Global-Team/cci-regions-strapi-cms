@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "italic"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
