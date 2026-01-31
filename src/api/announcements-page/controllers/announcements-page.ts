@@ -12,12 +12,12 @@ export default factories.createCoreController('api::announcements-page.announcem
     const now = new Date().toISOString();
     const announcements = await strapi.documents('api::announcement.announcement').findMany({
       status: 'published',
-      filters: {
-        $and: [
-          { publishAt: { $lte: now } },
-          { expireAt: { $gte: now } },
-        ],
-      },
+      // filters: {
+      //   $and: [
+      //     { publishAt: { $lte: now } },
+      //     { expireAt: { $gte: now } },
+      //   ],
+      // },
       populate: '*',
     });
 
