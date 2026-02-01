@@ -44,7 +44,7 @@
       "required": true
     },
     "descriptionRaw": {
-      "type": "blocks",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
