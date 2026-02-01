@@ -1553,7 +1553,7 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    descriptionRaw: Schema.Attribute.Blocks &
+    descriptionRaw: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
