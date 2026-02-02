@@ -10,12 +10,14 @@ export default factories.createCoreController('api::home-page.home-page', ({ str
     const response = await super.find(ctx);
 
     const events = await strapi.entityService.findMany('api::event.event', {
+      status: 'published',
       sort: { createdAt: 'desc' },
       limit: 3,
       populate: '*',
     });
 
     const sermons = await strapi.entityService.findMany('api::sermon.sermon', {
+      status: 'published',
       sort: { sermonDate: 'desc' },
       limit: 3,
       populate: '*',

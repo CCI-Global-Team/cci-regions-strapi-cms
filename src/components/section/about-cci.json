@@ -28,6 +28,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "ctaUrl": {
+      "type": "string"
     }
   },
   "config": {}
