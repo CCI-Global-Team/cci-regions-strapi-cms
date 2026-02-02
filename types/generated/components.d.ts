@@ -95,6 +95,7 @@ export interface SectionAboutCci extends Struct.ComponentSchema {
   attributes: {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     ctaLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    ctaUrl: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
