@@ -92,7 +92,7 @@
       },
       "required": true,
       "unique": true,
-      "regex": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      "regex": "^(?!^(about|announcements|community|start-here|connect|contact|events|event|get-involved|give|locations|media|loading|not-found)$)[a-z0-9]+(-[a-z0-9]+)*$"
     },
     "registrationUrl": {
       "type": "string",
