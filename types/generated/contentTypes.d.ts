@@ -1442,6 +1442,51 @@ export interface ApiLocationsPageLocationsPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMediaPageMediaPage extends Struct.SingleTypeSchema {
+  collectionName: 'media_pages';
+  info: {
+    displayName: 'MediaPage';
+    pluralName: 'media-pages';
+    singularName: 'media-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-page.media-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'MediaPage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
   collectionName: 'pastors';
   info: {
@@ -2279,6 +2324,7 @@ declare module '@strapi/strapi' {
       'api::get-involved-page.get-involved-page': ApiGetInvolvedPageGetInvolvedPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::locations-page.locations-page': ApiLocationsPageLocationsPage;
+      'api::media-page.media-page': ApiMediaPageMediaPage;
       'api::pastor.pastor': ApiPastorPastor;
       'api::sermon.sermon': ApiSermonSermon;
       'api::start-here-page.start-here-page': ApiStartHerePageStartHerePage;

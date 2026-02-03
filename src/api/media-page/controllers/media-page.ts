@@ -1,0 +1,33 @@
+/**
+ * media-page controller
+ */
+
+import { factories } from '@strapi/strapi'
+import type { Context } from 'koa';
+
+export default factories.createCoreController('api::media-page.media-page', ({ strapi }) => ({
+  async find(ctx: Context) {
+    const response = await super.find(ctx);
+
+    // const events = await strapi.entityService.findMany('api::event.event', {
+    //   status: 'published',
+    //   sort: { createdAt: 'desc' },
+    //   limit: 3,
+    //   populate: '*',
+    // });
+
+    const sermons = await strapi.entityService.findMany('api::sermon.sermon', {
+      status: 'published',
+      sort: { sermonDate: 'desc' },
+      populate: '*',
+    });
+
+    return {
+      ...response,
+      data: {
+        ...response?.data,
+        sermons
+      },
+    };
+  },
+}));
