@@ -1098,6 +1098,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
         'endless_life',
         'meet_and_greet',
         'refresh',
+        'thrive',
         'others',
       ]
     > &
@@ -1111,9 +1112,11 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
   };
