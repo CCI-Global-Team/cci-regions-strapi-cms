@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_section_our_pastors",
+  "info": {
+    "displayName": "OurPastors",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "ctaLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

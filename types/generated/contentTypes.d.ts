@@ -928,7 +928,7 @@ export interface ApiConnectPageConnectPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::connect-page.connect-page'
     >;
-    ourPastors: Schema.Attribute.Component<'global.text-block', false> &
+    ourPastors: Schema.Attribute.Component<'section.our-pastors', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

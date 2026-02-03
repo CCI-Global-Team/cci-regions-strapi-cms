@@ -43,7 +43,7 @@
           "localized": true
         }
       },
-      "component": "global.text-block",
+      "component": "section.our-pastors",
       "repeatable": false
     },
     "aboutCCI": {

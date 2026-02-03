@@ -262,6 +262,18 @@ export interface SectionOurApproach extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionOurPastors extends Struct.ComponentSchema {
+  collectionName: 'components_section_our_pastors';
+  info: {
+    displayName: 'OurPastors';
+    icon: 'globe';
+  };
+  attributes: {
+    ctaLabel: Schema.Attribute.String;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionOurPurpose extends Struct.ComponentSchema {
   collectionName: 'components_section_our_purposes';
   info: {
@@ -380,6 +392,7 @@ declare module '@strapi/strapi' {
       'section.locations': SectionLocations;
       'section.mission-vision': SectionMissionVision;
       'section.our-approach': SectionOurApproach;
+      'section.our-pastors': SectionOurPastors;
       'section.our-purpose': SectionOurPurpose;
       'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
