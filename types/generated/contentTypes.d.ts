@@ -1589,7 +1589,7 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
     audio: Schema.Attribute.Media<'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -1620,7 +1620,7 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -1628,7 +1628,7 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     sermonStatus: Schema.Attribute.Enumeration<
@@ -1651,7 +1651,7 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
     tags: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     thumbnail: Schema.Attribute.Media<'images'> &
@@ -1673,13 +1673,13 @@ export interface ApiSermonSermon extends Struct.CollectionTypeSchema {
     video: Schema.Attribute.Media<'videos'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     youtubeLink: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
   };
