@@ -186,6 +186,18 @@ export interface SectionHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionInterestGroups extends Struct.ComponentSchema {
+  collectionName: 'components_section_interest_groups';
+  info: {
+    displayName: 'InterestGroups';
+    icon: 'manyToMany';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', true>;
+    title: Schema.Attribute.Component<'global.text-block', true>;
+  };
+}
+
 export interface SectionJoinServiceUnit extends Struct.ComponentSchema {
   collectionName: 'components_section_join_service_units';
   info: {
@@ -225,6 +237,19 @@ export interface SectionLocations extends Struct.ComponentSchema {
     cellChurchSubtitle: Schema.Attribute.Text;
     cellChurchTabLabel: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionMaps extends Struct.ComponentSchema {
+  collectionName: 'components_section_maps';
+  info: {
+    displayName: 'Maps';
+    icon: 'bulletList';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -387,9 +412,11 @@ declare module '@strapi/strapi' {
       'section.become-a-member': SectionBecomeAMember;
       'section.contact': SectionContact;
       'section.hero': SectionHero;
+      'section.interest-groups': SectionInterestGroups;
       'section.join-service-unit': SectionJoinServiceUnit;
       'section.latest-messages': SectionLatestMessages;
       'section.locations': SectionLocations;
+      'section.maps': SectionMaps;
       'section.mission-vision': SectionMissionVision;
       'section.our-approach': SectionOurApproach;
       'section.our-pastors': SectionOurPastors;

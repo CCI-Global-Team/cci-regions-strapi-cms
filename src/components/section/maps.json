@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_section_maps",
+  "info": {
+    "displayName": "Maps",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

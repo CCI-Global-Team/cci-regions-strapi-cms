@@ -807,6 +807,11 @@ export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
         };
       }>;
     events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    group_leaders: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-leader.group-leader'
+    >;
+    groups: Schema.Attribute.Relation<'oneToMany', 'api::group.group'>;
     inceptionDate: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -821,6 +826,7 @@ export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::campus.campus'>;
+    maps: Schema.Attribute.Relation<'oneToMany', 'api::map.map'>;
     midweekDay: Schema.Attribute.Enumeration<
       ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     > &
@@ -888,6 +894,66 @@ export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+  };
+}
+
+export interface ApiCommunityPageCommunityPage extends Struct.SingleTypeSchema {
+  collectionName: 'community_pages';
+  info: {
+    displayName: 'CommunityPage';
+    pluralName: 'community-pages';
+    singularName: 'community-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    interestGroups: Schema.Attribute.Component<
+      'section.interest-groups',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::community-page.community-page'
+    >;
+    maps: Schema.Attribute.Component<'section.maps', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'CommunityPage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1319,6 +1385,112 @@ export interface ApiGetInvolvedPageGetInvolvedPage
   };
 }
 
+export interface ApiGroupLeaderGroupLeader extends Struct.CollectionTypeSchema {
+  collectionName: 'group_leaders';
+  info: {
+    displayName: 'GroupLeader';
+    pluralName: 'group-leaders';
+    singularName: 'group-leader';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    group: Schema.Attribute.Relation<'manyToOne', 'api::group.group'>;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-leader.group-leader'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    suffix: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
+  collectionName: 'groups';
+  info: {
+    displayName: 'Group';
+    pluralName: 'groups';
+    singularName: 'group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    group_leaders: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-leader.group-leader'
+    >;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::group.group'>;
+    membersCount: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'0'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    registrationUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tags: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -1439,6 +1611,84 @@ export interface ApiLocationsPageLocationsPage extends Struct.SingleTypeSchema {
       }> &
       Schema.Attribute.DefaultTo<'LocationsPage'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMapMap extends Struct.CollectionTypeSchema {
+  collectionName: 'maps';
+  info: {
+    displayName: 'Map';
+    pluralName: 'maps';
+    singularName: 'map';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    areasCovered: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
+    coordinatorEmail: Schema.Attribute.Email &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coordinatorName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    coordinatorPhone: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::map.map'>;
+    membersCount: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    registrationUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2319,14 +2569,18 @@ declare module '@strapi/strapi' {
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::announcements-page.announcements-page': ApiAnnouncementsPageAnnouncementsPage;
       'api::campus.campus': ApiCampusCampus;
+      'api::community-page.community-page': ApiCommunityPageCommunityPage;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::event.event': ApiEventEvent;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::get-involved-page.get-involved-page': ApiGetInvolvedPageGetInvolvedPage;
+      'api::group-leader.group-leader': ApiGroupLeaderGroupLeader;
+      'api::group.group': ApiGroupGroup;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::locations-page.locations-page': ApiLocationsPageLocationsPage;
+      'api::map.map': ApiMapMap;
       'api::media-page.media-page': ApiMediaPageMediaPage;
       'api::pastor.pastor': ApiPastorPastor;
       'api::sermon.sermon': ApiSermonSermon;
