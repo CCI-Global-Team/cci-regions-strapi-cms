@@ -33,7 +33,7 @@
         }
       },
       "component": "section.hero",
-      "repeatable": true
+      "repeatable": false
     },
     "maps": {
       "type": "component",

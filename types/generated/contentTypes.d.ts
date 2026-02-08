@@ -916,7 +916,7 @@ export interface ApiCommunityPageCommunityPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    header: Schema.Attribute.Component<'section.hero', true> &
+    header: Schema.Attribute.Component<'section.hero', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1410,6 +1410,7 @@ export interface ApiGroupLeaderGroupLeader extends Struct.CollectionTypeSchema {
       'api::group-leader.group-leader'
     > &
       Schema.Attribute.Private;
+    map: Schema.Attribute.Relation<'manyToOne', 'api::map.map'>;
     phone: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     suffix: Schema.Attribute.String;
@@ -1458,13 +1459,11 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::group.group'>;
     membersCount: Schema.Attribute.BigInteger &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
-      }> &
-      Schema.Attribute.DefaultTo<'0'>;
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1640,24 +1639,6 @@ export interface ApiMapMap extends Struct.CollectionTypeSchema {
         };
       }>;
     campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
-    coordinatorEmail: Schema.Attribute.Email &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    coordinatorName: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    coordinatorPhone: Schema.Attribute.BigInteger &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1667,6 +1648,10 @@ export interface ApiMapMap extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    group_leaders: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-leader.group-leader'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::map.map'>;
     membersCount: Schema.Attribute.BigInteger &

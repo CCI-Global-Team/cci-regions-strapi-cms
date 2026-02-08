@@ -39,8 +39,7 @@
           "localized": true
         }
       },
-      "required": true,
-      "default": "0"
+      "required": false
     },
     "registrationUrl": {
       "type": "string",

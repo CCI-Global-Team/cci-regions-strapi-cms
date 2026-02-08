@@ -39,6 +39,12 @@
       "relation": "manyToOne",
       "target": "api::group.group",
       "inversedBy": "group_leaders"
+    },
+    "map": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::map.map",
+      "inversedBy": "group_leaders"
     }
   }
 }
