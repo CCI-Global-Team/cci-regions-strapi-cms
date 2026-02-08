@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_interest_groups",
+  "info": {
+    "displayName": "InterestGroups",
+    "icon": "manyToMany"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": true
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

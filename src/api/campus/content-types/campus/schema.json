@@ -179,6 +179,24 @@
       "relation": "manyToMany",
       "target": "api::announcement.announcement",
       "mappedBy": "locations"
+    },
+    "maps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::map.map",
+      "mappedBy": "campus"
+    },
+    "group_leaders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-leader.group-leader",
+      "mappedBy": "campus"
+    },
+    "groups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group.group",
+      "mappedBy": "campus"
     }
   }
 }
