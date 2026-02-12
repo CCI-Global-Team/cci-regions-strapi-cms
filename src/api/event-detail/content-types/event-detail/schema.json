@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "event_details",
+  "info": {
+    "singularName": "event-detail",
+    "pluralName": "event-details",
+    "displayName": "EventDetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event",
+      "mappedBy": "event_detail"
+    },
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "event.event-hero",
+      "repeatable": false,
+      "required": true
+    },
+    "engage": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "event.event-engage",
+      "repeatable": false
+    },
+    "resources": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "event.event-info-coming-soon"
+      ]
+    },
+    "faqs": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "event.event-faqs",
+      "repeatable": false
+    }
+  }
+}

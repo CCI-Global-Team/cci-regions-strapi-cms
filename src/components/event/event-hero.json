@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_event_event_heroes",
+  "info": {
+    "displayName": "EventHero",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleBranded": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "actions": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": true
+    },
+    "tags": {
+      "type": "component",
+      "component": "event.event-tags",
+      "repeatable": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    }
+  },
+  "config": {}
+}

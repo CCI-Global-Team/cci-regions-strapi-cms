@@ -41,6 +41,17 @@
     },
     "url": {
       "type": "string"
+    },
+    "iconPosition": {
+      "type": "enumeration",
+      "default": "left",
+      "enum": [
+        "left",
+        "middle",
+        "right",
+        "top",
+        "bottom"
+      ]
     }
   },
   "config": {}

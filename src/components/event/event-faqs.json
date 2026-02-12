@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_event_event_faqs",
+  "info": {
+    "displayName": "EventFaqs",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "order": {
+      "type": "integer",
+      "default": 2
+    },
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_icon_texts",
+  "info": {
+    "displayName": "IconText",
+    "icon": "paintBrush"
+  },
+  "options": {},
+  "attributes": {
+    "iconText": {
+      "type": "string",
+      "required": true
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
