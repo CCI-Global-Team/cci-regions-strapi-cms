@@ -42,6 +42,21 @@ export interface EventEventEngage extends Struct.ComponentSchema {
         number
       >;
     badge: Schema.Attribute.Component<'global.badge', false>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface EventEventFaqs extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_faqs';
+  info: {
+    displayName: 'EventFaqs';
+    icon: 'quote';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
@@ -56,10 +71,35 @@ export interface EventEventHero extends Struct.ComponentSchema {
   attributes: {
     actions: Schema.Attribute.Component<'global.button', true>;
     banner: Schema.Attribute.Media<'images' | 'videos'>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
     tags: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_info_coming_soons';
+  info: {
+    displayName: 'EventInfoComingSoon';
+    icon: 'cursor';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    bgColor: Schema.Attribute.String;
+    ctaButton: Schema.Attribute.Component<'global.button', false>;
+    icon: Schema.Attribute.Media<'images'>;
+    mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
+    mainIconColor: Schema.Attribute.String;
+    mainIconText: Schema.Attribute.String;
+    mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
+    tag: Schema.Attribute.Component<'event.event-tags', false>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -497,7 +537,9 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'event.event-action-card': EventEventActionCard;
       'event.event-engage': EventEventEngage;
+      'event.event-faqs': EventEventFaqs;
       'event.event-hero': EventEventHero;
+      'event.event-info-coming-soon': EventEventInfoComingSoon;
       'event.event-tags': EventEventTags;
       'global.badge': GlobalBadge;
       'global.button': GlobalButton;

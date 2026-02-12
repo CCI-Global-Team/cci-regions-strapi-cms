@@ -33,6 +33,11 @@
       "type": "component",
       "component": "event.event-tags",
       "repeatable": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   },
   "config": {}

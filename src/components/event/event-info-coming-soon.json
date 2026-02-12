@@ -1,0 +1,61 @@
+{
+  "collectionName": "components_event_event_info_coming_soons",
+  "info": {
+    "displayName": "EventInfoComingSoon",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "mainIconText": {
+      "type": "string"
+    },
+    "mainIconColor": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tag": {
+      "type": "component",
+      "component": "event.event-tags",
+      "repeatable": false,
+      "required": false
+    },
+    "mainTitle": {
+      "type": "string",
+      "required": true
+    },
+    "mainContent": {
+      "type": "text",
+      "required": true
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    },
+    "order": {
+      "type": "integer",
+      "default": 2
+    }
+  },
+  "config": {}
+}

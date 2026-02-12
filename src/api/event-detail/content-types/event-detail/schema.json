@@ -41,6 +41,27 @@
       },
       "component": "event.event-engage",
       "repeatable": false
+    },
+    "resources": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "event.event-info-coming-soon"
+      ]
+    },
+    "faqs": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "event.event-faqs",
+      "repeatable": false
     }
   }
 }

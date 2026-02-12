@@ -22,6 +22,10 @@
       "component": "event.event-action-card",
       "repeatable": true,
       "min": 1
+    },
+    "order": {
+      "type": "integer",
+      "default": 2
     }
   },
   "config": {}
