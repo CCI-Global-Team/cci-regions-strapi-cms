@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_event_event_tags",
+  "info": {
+    "displayName": "EventTags",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "iconText": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

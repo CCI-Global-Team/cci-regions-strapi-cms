@@ -1075,6 +1075,51 @@ export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEventDetailEventDetail extends Struct.CollectionTypeSchema {
+  collectionName: 'event_details';
+  info: {
+    displayName: 'EventDetail';
+    pluralName: 'event-details';
+    singularName: 'event-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    engage: Schema.Attribute.Component<'event.event-engage', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    event: Schema.Attribute.Relation<'oneToOne', 'api::event.event'>;
+    header: Schema.Attribute.Component<'event.event-hero', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-detail.event-detail'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -1122,6 +1167,10 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    event_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::event-detail.event-detail'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -2557,6 +2606,7 @@ declare module '@strapi/strapi' {
       'api::community-page.community-page': ApiCommunityPageCommunityPage;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
+      'api::event-detail.event-detail': ApiEventDetailEventDetail;
       'api::event.event': ApiEventEvent;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;

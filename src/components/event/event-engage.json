@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_event_event_engages",
+  "info": {
+    "displayName": "EventEngage",
+    "icon": "manyWays"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false,
+      "required": true
+    },
+    "badge": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "actions": {
+      "type": "component",
+      "component": "event.event-action-card",
+      "repeatable": true,
+      "min": 1
+    }
+  },
+  "config": {}
+}

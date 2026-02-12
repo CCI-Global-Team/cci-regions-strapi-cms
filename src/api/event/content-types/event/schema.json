@@ -134,6 +134,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::address.address"
+    },
+    "event_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event-detail.event-detail",
+      "inversedBy": "event"
     }
   }
 }

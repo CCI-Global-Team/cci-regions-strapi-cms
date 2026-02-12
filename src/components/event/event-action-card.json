@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_event_event_action_cards",
+  "info": {
+    "displayName": "EventActionCard",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleStyles": {
+      "type": "string"
+    },
+    "mainIconText": {
+      "type": "string"
+    },
+    "mainTag": {
+      "type": "component",
+      "component": "event.event-tags",
+      "repeatable": false
+    },
+    "details": {
+      "type": "component",
+      "component": "global.text",
+      "repeatable": true,
+      "min": 1
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "mainIcon": {
+      "type": "component",
+      "component": "global.icon-text",
+      "repeatable": false
+    },
+    "options": {
+      "type": "component",
+      "component": "global.text",
+      "repeatable": true
+    },
+    "tags": {
+      "type": "component",
+      "component": "event.event-tags",
+      "repeatable": true
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

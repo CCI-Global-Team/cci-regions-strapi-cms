@@ -1,5 +1,82 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface EventEventActionCard extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_action_cards';
+  info: {
+    displayName: 'EventActionCard';
+    icon: 'stack';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    borderColor: Schema.Attribute.String;
+    ctaButton: Schema.Attribute.Component<'global.button', false>;
+    details: Schema.Attribute.Component<'global.text', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
+    mainIconText: Schema.Attribute.String;
+    mainTag: Schema.Attribute.Component<'event.event-tags', false>;
+    options: Schema.Attribute.Component<'global.text', true>;
+    tags: Schema.Attribute.Component<'event.event-tags', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleStyles: Schema.Attribute.String;
+  };
+}
+
+export interface EventEventEngage extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_engages';
+  info: {
+    displayName: 'EventEngage';
+    icon: 'manyWays';
+  };
+  attributes: {
+    actions: Schema.Attribute.Component<'event.event-action-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    badge: Schema.Attribute.Component<'global.badge', false>;
+    title: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface EventEventHero extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_heroes';
+  info: {
+    displayName: 'EventHero';
+    icon: 'landscape';
+  };
+  attributes: {
+    actions: Schema.Attribute.Component<'global.button', true>;
+    banner: Schema.Attribute.Media<'images' | 'videos'>;
+    subtitle: Schema.Attribute.String;
+    tags: Schema.Attribute.Component<'event.event-tags', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface EventEventTags extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_tags';
+  info: {
+    displayName: 'EventTags';
+    icon: 'connector';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    borderColor: Schema.Attribute.String;
+    iconText: Schema.Attribute.String;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface GlobalBadge extends Struct.ComponentSchema {
   collectionName: 'components_global_badges';
   info: {
@@ -21,6 +98,10 @@ export interface GlobalButton extends Struct.ComponentSchema {
   attributes: {
     classNames: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images'>;
+    iconPosition: Schema.Attribute.Enumeration<
+      ['left', 'middle', 'right', 'top', 'bottom']
+    > &
+      Schema.Attribute.DefaultTo<'left'>;
     iconText: Schema.Attribute.String;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer;
@@ -58,6 +139,19 @@ export interface GlobalConnectCard extends Struct.ComponentSchema {
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+  };
+}
+
+export interface GlobalIconText extends Struct.ComponentSchema {
+  collectionName: 'components_global_icon_texts';
+  info: {
+    displayName: 'IconText';
+    icon: 'paintBrush';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    borderColor: Schema.Attribute.String;
+    iconText: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -401,9 +495,14 @@ export interface SectionWhatToExpect extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'event.event-action-card': EventEventActionCard;
+      'event.event-engage': EventEventEngage;
+      'event.event-hero': EventEventHero;
+      'event.event-tags': EventEventTags;
       'global.badge': GlobalBadge;
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
+      'global.icon-text': GlobalIconText;
       'global.text': GlobalText;
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;
