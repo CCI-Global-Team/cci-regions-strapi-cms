@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "badge": {
+    "tagline": {
       "type": "component",
       "component": "global.badge",
       "repeatable": false

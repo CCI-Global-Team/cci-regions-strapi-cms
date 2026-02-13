@@ -10,7 +10,7 @@
       "type": "integer",
       "default": 2
     },
-    "badge": {
+    "tagline": {
       "type": "component",
       "component": "global.badge",
       "repeatable": false

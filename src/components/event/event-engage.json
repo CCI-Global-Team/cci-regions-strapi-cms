@@ -12,7 +12,7 @@
       "repeatable": false,
       "required": true
     },
-    "badge": {
+    "tagline": {
       "type": "component",
       "component": "global.badge",
       "repeatable": false
