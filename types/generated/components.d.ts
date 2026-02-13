@@ -18,8 +18,6 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
         number
       >;
     mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
-    mainIconText: Schema.Attribute.String;
-    mainTag: Schema.Attribute.Component<'event.event-tags', false>;
     options: Schema.Attribute.Component<'global.text', true>;
     tags: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -41,8 +39,8 @@ export interface EventEventEngage extends Struct.ComponentSchema {
         },
         number
       >;
-    badge: Schema.Attribute.Component<'global.badge', false>;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
@@ -55,8 +53,8 @@ export interface EventEventFaqs extends Struct.ComponentSchema {
     icon: 'quote';
   };
   attributes: {
-    badge: Schema.Attribute.Component<'global.badge', false>;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
@@ -75,7 +73,7 @@ export interface EventEventHero extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
-    tags: Schema.Attribute.Component<'event.event-tags', true>;
+    taglines: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleBranded: Schema.Attribute.String;
   };
@@ -88,7 +86,6 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    badge: Schema.Attribute.Component<'global.badge', false>;
     bgColor: Schema.Attribute.String;
     ctaButton: Schema.Attribute.Component<'global.button', false>;
     icon: Schema.Attribute.Media<'images'>;
@@ -98,6 +95,7 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
     tag: Schema.Attribute.Component<'event.event-tags', false>;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
@@ -192,6 +190,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
     bgColor: Schema.Attribute.String;
     borderColor: Schema.Attribute.String;
     iconText: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String;
   };
 }
 

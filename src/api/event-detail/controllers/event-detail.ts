@@ -16,15 +16,19 @@ export default factories.createCoreController('api::event-detail.event-detail', 
       fields: ['position', 'title', 'content'],
     });
 
-    return {
-      ...response,
-      data: {
-        ...response.data,
+    const data = response.data[0];
+
+    if (data) {
+      return {
+        ...data,
         faqs: {
-          ...response.data.faqs,
-          faqs,
-        },
-      },
-    };
+          ...data.faqs,
+          data: faqs
+        }
+      }
+    }
+    else {
+      return null
+    }
   },
 }));

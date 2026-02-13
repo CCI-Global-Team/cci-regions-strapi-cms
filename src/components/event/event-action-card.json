@@ -13,14 +13,6 @@
     "titleStyles": {
       "type": "string"
     },
-    "mainIconText": {
-      "type": "string"
-    },
-    "mainTag": {
-      "type": "component",
-      "component": "event.event-tags",
-      "repeatable": false
-    },
     "details": {
       "type": "component",
       "component": "global.text",
