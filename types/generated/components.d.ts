@@ -193,8 +193,39 @@ export interface GlobalIconText extends Struct.ComponentSchema {
   attributes: {
     bgColor: Schema.Attribute.String;
     borderColor: Schema.Attribute.String;
-    iconText: Schema.Attribute.String & Schema.Attribute.Required;
+    iconText: Schema.Attribute.Enumeration<
+      [
+        'ArrowRight',
+        'ArrowUpRight',
+        'CalendarDateLinear',
+        'CalendarDays',
+        'ClockCircleLinear',
+        'Coins',
+        'FileText',
+        'Gift',
+        'GlobalLinear',
+        'HeartLinear',
+        'Idea',
+        'LetterLinear',
+        'LiveStreaming',
+        'MapPointLinear',
+        'Megaphone',
+        'NotebookMinimalisticOutline',
+        'PhoneCallingLinear',
+        'PlayBold',
+        'RaynaEmptyCalendar',
+        'SquqreArrowRightUpOutline',
+        'Star',
+        'Store',
+        'TrendingUp',
+        'Trophy',
+        'UserRoundedLinear',
+        'UsersGroupRoundedLinear',
+      ]
+    > &
+      Schema.Attribute.Required;
     label: Schema.Attribute.String;
+    labelColor: Schema.Attribute.String;
   };
 }
 
