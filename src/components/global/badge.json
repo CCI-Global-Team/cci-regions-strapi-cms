@@ -12,6 +12,12 @@
     "text": {
       "type": "string",
       "required": true
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
     }
   },
   "config": {}

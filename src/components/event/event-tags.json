@@ -18,6 +18,12 @@
     },
     "bgColor": {
       "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "labelColor": {
+      "type": "string"
     }
   },
   "config": {}
