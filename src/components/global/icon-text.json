@@ -49,6 +49,9 @@
     },
     "labelColor": {
       "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
     }
   },
   "config": {}

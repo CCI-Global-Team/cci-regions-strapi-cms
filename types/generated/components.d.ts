@@ -140,11 +140,41 @@ export interface GlobalButton extends Struct.ComponentSchema {
   attributes: {
     classNames: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images'>;
+    iconColor: Schema.Attribute.String;
     iconPosition: Schema.Attribute.Enumeration<
       ['left', 'middle', 'right', 'top', 'bottom']
     > &
       Schema.Attribute.DefaultTo<'left'>;
-    iconText: Schema.Attribute.String;
+    iconText: Schema.Attribute.Enumeration<
+      [
+        'ArrowRight',
+        'ArrowUpRight',
+        'CalendarDateLinear',
+        'CalendarDays',
+        'ClockCircleLinear',
+        'Coins',
+        'FileText',
+        'Gift',
+        'GlobalLinear',
+        'HeartLinear',
+        'Idea',
+        'LetterLinear',
+        'LiveStreaming',
+        'MapPointLinear',
+        'Megaphone',
+        'NotebookMinimalisticOutline',
+        'PhoneCallingLinear',
+        'PlayBold',
+        'RaynaEmptyCalendar',
+        'SquqreArrowRightUpOutline',
+        'Star',
+        'Store',
+        'TrendingUp',
+        'Trophy',
+        'UserRoundedLinear',
+        'UsersGroupRoundedLinear',
+      ]
+    >;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer;
     url: Schema.Attribute.String;
@@ -193,6 +223,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
   attributes: {
     bgColor: Schema.Attribute.String;
     borderColor: Schema.Attribute.String;
+    iconColor: Schema.Attribute.String;
     iconText: Schema.Attribute.Enumeration<
       [
         'ArrowRight',

@@ -23,9 +23,6 @@
         "success"
       ]
     },
-    "iconText": {
-      "type": "string"
-    },
     "icon": {
       "type": "media",
       "multiple": false,
@@ -52,6 +49,40 @@
         "top",
         "bottom"
       ]
+    },
+    "iconText": {
+      "type": "enumeration",
+      "enum": [
+        "ArrowRight",
+        "ArrowUpRight",
+        "CalendarDateLinear",
+        "CalendarDays",
+        "ClockCircleLinear",
+        "Coins",
+        "FileText",
+        "Gift",
+        "GlobalLinear",
+        "HeartLinear",
+        "Idea",
+        "LetterLinear",
+        "LiveStreaming",
+        "MapPointLinear",
+        "Megaphone",
+        "NotebookMinimalisticOutline",
+        "PhoneCallingLinear",
+        "PlayBold",
+        "RaynaEmptyCalendar",
+        "SquqreArrowRightUpOutline",
+        "Star",
+        "Store",
+        "TrendingUp",
+        "Trophy",
+        "UserRoundedLinear",
+        "UsersGroupRoundedLinear"
+      ]
+    },
+    "iconColor": {
+      "type": "string"
     }
   },
   "config": {}
