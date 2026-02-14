@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_styles",
+  "info": {
+    "displayName": "Styles",
+    "icon": "puzzle"
+  },
+  "options": {},
+  "attributes": {
+    "bgColor": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "secondaryTextColor": {
+      "type": "string"
+    },
+    "iconColor": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

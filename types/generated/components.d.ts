@@ -7,8 +7,8 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    bgColor: Schema.Attribute.String;
-    borderColor: Schema.Attribute.String;
+    cardStyles: Schema.Attribute.Component<'global.styles', false> &
+      Schema.Attribute.Required;
     ctaButton: Schema.Attribute.Component<'global.button', false>;
     details: Schema.Attribute.Component<'global.text', true> &
       Schema.Attribute.SetMinMax<
@@ -110,8 +110,10 @@ export interface EventEventTags extends Struct.ComponentSchema {
   attributes: {
     bgColor: Schema.Attribute.String;
     borderColor: Schema.Attribute.String;
+    iconColor: Schema.Attribute.String;
     iconText: Schema.Attribute.String;
     label: Schema.Attribute.String & Schema.Attribute.Required;
+    labelColor: Schema.Attribute.String;
   };
 }
 
@@ -123,7 +125,9 @@ export interface GlobalBadge extends Struct.ComponentSchema {
   };
   attributes: {
     icon: Schema.Attribute.String;
+    iconColor: Schema.Attribute.String;
     text: Schema.Attribute.String & Schema.Attribute.Required;
+    textColor: Schema.Attribute.String;
   };
 }
 
@@ -191,6 +195,21 @@ export interface GlobalIconText extends Struct.ComponentSchema {
     borderColor: Schema.Attribute.String;
     iconText: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalStyles extends Struct.ComponentSchema {
+  collectionName: 'components_global_styles';
+  info: {
+    displayName: 'Styles';
+    icon: 'puzzle';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    borderColor: Schema.Attribute.String;
+    iconColor: Schema.Attribute.String;
+    secondaryTextColor: Schema.Attribute.String;
+    textColor: Schema.Attribute.String;
   };
 }
 
@@ -544,6 +563,7 @@ declare module '@strapi/strapi' {
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
       'global.icon-text': GlobalIconText;
+      'global.styles': GlobalStyles;
       'global.text': GlobalText;
       'global.text-block': GlobalTextBlock;
       'section.about-cci': SectionAboutCci;

@@ -15,6 +15,17 @@
     }
   },
   "attributes": {
+    "title": {
+      "type": "string",
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "EventDetails",
+      "required": false
+    },
     "event": {
       "type": "relation",
       "relation": "oneToOne",

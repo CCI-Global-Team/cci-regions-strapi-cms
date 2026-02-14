@@ -19,12 +19,6 @@
       "repeatable": true,
       "min": 1
     },
-    "borderColor": {
-      "type": "string"
-    },
-    "bgColor": {
-      "type": "string"
-    },
     "mainIcon": {
       "type": "component",
       "component": "global.icon-text",
@@ -44,6 +38,12 @@
       "type": "component",
       "component": "global.button",
       "repeatable": false
+    },
+    "cardStyles": {
+      "type": "component",
+      "component": "global.styles",
+      "repeatable": false,
+      "required": true
     }
   },
   "config": {}
