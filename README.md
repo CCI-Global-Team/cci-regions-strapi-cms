@@ -1,4 +1,6 @@
-# 🚀 CCI Canada - Strapi CMS
+# 🚀 CCI Regions - Strapi CMS
+
+This is the CMS for all regions website at Celebration Church International. This includes Canada, USA, Uk/Europe, Australia, etc.
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
