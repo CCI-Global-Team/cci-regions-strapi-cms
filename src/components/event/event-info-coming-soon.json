@@ -55,6 +55,9 @@
     "order": {
       "type": "integer",
       "default": 2
+    },
+    "textColor": {
+      "type": "string"
     }
   },
   "config": {}

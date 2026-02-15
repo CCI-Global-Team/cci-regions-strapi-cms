@@ -96,6 +96,7 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
     tag: Schema.Attribute.Component<'event.event-tags', false>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
+    textColor: Schema.Attribute.String;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
