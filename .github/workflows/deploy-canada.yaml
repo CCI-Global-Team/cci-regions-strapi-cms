@@ -1,9 +1,9 @@
-name: Build and deploy application to ECS
+name: Canada - Build and deploy application to ECS
 
 on:
   push:
     branches:
-      - production
+      - production-ca
 
 jobs:
   build:

@@ -1101,7 +1101,8 @@ export interface ApiEventDetailEventDetail extends Struct.CollectionTypeSchema {
         };
       }>;
     event: Schema.Attribute.Relation<'oneToOne', 'api::event.event'>;
-    faqs: Schema.Attribute.Component<'event.event-faqs', false> &
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    faqsSection: Schema.Attribute.Component<'event.event-faqs', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1329,6 +1330,10 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    event_detail: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::event-detail.event-detail'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
     position: Schema.Attribute.BigInteger &
@@ -1339,7 +1344,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    resource: Schema.Attribute.Enumeration<['event']> &
+    resource: Schema.Attribute.Enumeration<['event', 'give']> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

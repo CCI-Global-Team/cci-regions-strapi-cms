@@ -64,7 +64,7 @@
         "event.event-info-coming-soon"
       ]
     },
-    "faqs": {
+    "faqsSection": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
@@ -73,6 +73,12 @@
       },
       "component": "event.event-faqs",
       "repeatable": false
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "event_detail"
     }
   }
 }
