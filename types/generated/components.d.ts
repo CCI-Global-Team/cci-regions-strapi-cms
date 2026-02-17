@@ -7,8 +7,6 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    cardStyles: Schema.Attribute.Component<'global.styles', false> &
-      Schema.Attribute.Required;
     ctaButton: Schema.Attribute.Component<'global.button', false>;
     details: Schema.Attribute.Component<'global.text', true> &
       Schema.Attribute.SetMinMax<
@@ -22,6 +20,9 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
     tags: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     titleStyles: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['dark', 'soft', 'brand']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
   };
 }
 
