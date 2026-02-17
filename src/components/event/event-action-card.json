@@ -39,11 +39,15 @@
       "component": "global.button",
       "repeatable": false
     },
-    "cardStyles": {
-      "type": "component",
-      "component": "global.styles",
-      "repeatable": false,
-      "required": true
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "dark",
+      "enum": [
+        "dark",
+        "soft",
+        "brand"
+      ]
     }
   },
   "config": {}
