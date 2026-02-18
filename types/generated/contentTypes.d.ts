@@ -1572,6 +1572,12 @@ export interface ApiGroupGroup extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    bgImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

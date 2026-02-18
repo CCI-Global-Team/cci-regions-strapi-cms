@@ -17,16 +17,18 @@ export default factories.createCoreController('api::event-detail.event-detail', 
       filters: { resource: { $eq: 'event' } },
       sort: { position: 'asc' },
       populate: 'event_detail',
-      fields: ['position', 'title', 'content'],
+      fields: ['position', 'title', 'content', 'locale'],
+      locale: data.locale
     });
 
     const eventDetailFaq = faqs
       .filter((faq) => data.documentId === faq.event_detail?.documentId)
-      .map(({ documentId, position, title, content }) => ({
+      .map(({ documentId, position, title, content, locale }) => ({
         documentId,
         position,
         title,
         content,
+        locale,
       }));
 
     return {
