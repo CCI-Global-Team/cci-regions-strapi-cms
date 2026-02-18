@@ -61,7 +61,8 @@
         }
       },
       "components": [
-        "event.event-info-coming-soon"
+        "event.event-info-coming-soon",
+        "event.event-info-brochure"
       ]
     },
     "faqsSection": {

@@ -17,22 +17,6 @@
       "repeatable": false,
       "required": true
     },
-    "bgColor": {
-      "type": "string"
-    },
-    "mainIconText": {
-      "type": "string"
-    },
-    "mainIconColor": {
-      "type": "string"
-    },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "tag": {
       "type": "component",
       "component": "event.event-tags",
@@ -56,8 +40,15 @@
       "type": "integer",
       "default": 2
     },
-    "textColor": {
-      "type": "string"
+    "mainIcon": {
+      "type": "component",
+      "component": "global.icon-text",
+      "repeatable": false
+    },
+    "styles": {
+      "type": "component",
+      "component": "global.styles",
+      "repeatable": false
     }
   },
   "config": {}

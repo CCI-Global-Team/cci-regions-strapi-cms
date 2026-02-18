@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "give_pages",
+  "info": {
+    "singularName": "give-page",
+    "pluralName": "give-pages",
+    "displayName": "GivePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "pageName": {
+      "type": "string",
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "default": "GivePage",
+      "required": true
+    },
+    "header": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.hero",
+      "repeatable": false
+    }
+  }
+}

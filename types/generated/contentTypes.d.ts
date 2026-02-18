@@ -1121,7 +1121,9 @@ export interface ApiEventDetailEventDetail extends Struct.CollectionTypeSchema {
       'api::event-detail.event-detail'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    resources: Schema.Attribute.DynamicZone<['event.event-info-coming-soon']> &
+    resources: Schema.Attribute.DynamicZone<
+      ['event.event-info-coming-soon', 'event.event-info-brochure']
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1508,6 +1510,52 @@ export interface ApiGetInvolvedPageGetInvolvedPage
         };
       }> &
       Schema.Attribute.DefaultTo<'GetInvolvedPage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGivePageGivePage extends Struct.SingleTypeSchema {
+  collectionName: 'give_pages';
+  info: {
+    displayName: 'GivePage';
+    pluralName: 'give-pages';
+    singularName: 'give-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::give-page.give-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'GivePage'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2699,6 +2747,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::get-involved-page.get-involved-page': ApiGetInvolvedPageGetInvolvedPage;
+      'api::give-page.give-page': ApiGivePageGivePage;
       'api::group-leader.group-leader': ApiGroupLeaderGroupLeader;
       'api::group.group': ApiGroupGroup;
       'api::home-page.home-page': ApiHomePageHomePage;

@@ -1,0 +1,61 @@
+{
+  "collectionName": "components_event_event_info_brochures",
+  "info": {
+    "displayName": "EventInfoBrochure",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    },
+    "styles": {
+      "type": "component",
+      "component": "global.styles",
+      "repeatable": false
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 2
+    },
+    "mainIconText": {
+      "type": "component",
+      "component": "global.icon-text",
+      "repeatable": false
+    },
+    "tagline": {
+      "type": "component",
+      "component": "global.badge",
+      "repeatable": false
+    },
+    "mainTitle": {
+      "type": "string",
+      "required": true
+    },
+    "mainContent": {
+      "type": "text",
+      "required": true
+    },
+    "ctaButtons": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": true,
+      "required": true
+    },
+    "tags": {
+      "type": "component",
+      "component": "event.event-tags",
+      "repeatable": true
+    },
+    "brochure": {
+      "type": "component",
+      "component": "event.event-brochure",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

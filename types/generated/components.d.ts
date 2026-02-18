@@ -26,6 +26,26 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface EventEventBrochure extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_brochures';
+  info: {
+    displayName: 'EventBrochure';
+    icon: 'discuss';
+  };
+  attributes: {
+    embedCode: Schema.Attribute.Text & Schema.Attribute.Required;
+    embedUrl: Schema.Attribute.Text;
+    file: Schema.Attribute.Media<'files'>;
+    fileSize: Schema.Attribute.String;
+    helperText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Interactive Brochure'>;
+    pagesCount: Schema.Attribute.String;
+    poweredBy: Schema.Attribute.String & Schema.Attribute.Required;
+    provider: Schema.Attribute.Enumeration<['Canva']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface EventEventEngage extends Struct.ComponentSchema {
   collectionName: 'components_event_event_engages';
   info: {
@@ -80,6 +100,30 @@ export interface EventEventHero extends Struct.ComponentSchema {
   };
 }
 
+export interface EventEventInfoBrochure extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_info_brochures';
+  info: {
+    displayName: 'EventInfoBrochure';
+    icon: 'server';
+  };
+  attributes: {
+    brochure: Schema.Attribute.Component<'event.event-brochure', false> &
+      Schema.Attribute.Required;
+    ctaButtons: Schema.Attribute.Component<'global.button', true> &
+      Schema.Attribute.Required;
+    mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
+    mainIconText: Schema.Attribute.Component<'global.icon-text', false>;
+    mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<2>;
+    styles: Schema.Attribute.Component<'global.styles', false>;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
+    tags: Schema.Attribute.Component<'event.event-tags', true>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
   collectionName: 'components_event_event_info_coming_soons';
   info: {
@@ -87,17 +131,14 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    bgColor: Schema.Attribute.String;
     ctaButton: Schema.Attribute.Component<'global.button', false>;
-    icon: Schema.Attribute.Media<'images'>;
     mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
-    mainIconColor: Schema.Attribute.String;
-    mainIconText: Schema.Attribute.String;
+    mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
+    styles: Schema.Attribute.Component<'global.styles', false>;
     tag: Schema.Attribute.Component<'event.event-tags', false>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
-    textColor: Schema.Attribute.String;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
   };
@@ -618,9 +659,11 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'event.event-action-card': EventEventActionCard;
+      'event.event-brochure': EventEventBrochure;
       'event.event-engage': EventEventEngage;
       'event.event-faqs': EventEventFaqs;
       'event.event-hero': EventEventHero;
+      'event.event-info-brochure': EventEventInfoBrochure;
       'event.event-info-coming-soon': EventEventInfoComingSoon;
       'event.event-tags': EventEventTags;
       'global.badge': GlobalBadge;
