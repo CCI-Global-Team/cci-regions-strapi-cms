@@ -20,23 +20,13 @@
     "embedUrl": {
       "type": "text"
     },
-    "helperText": {
-      "type": "string",
-      "default": "Interactive Brochure"
-    },
-    "poweredBy": {
-      "type": "string",
-      "required": true
-    },
     "pagesCount": {
-      "type": "string"
-    },
-    "fileSize": {
       "type": "string"
     },
     "file": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "files"
       ]

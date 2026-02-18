@@ -11,17 +11,12 @@
       "component": "global.text-block",
       "repeatable": false
     },
-    "styles": {
-      "type": "component",
-      "component": "global.styles",
-      "repeatable": false
-    },
     "order": {
       "type": "integer",
       "required": true,
       "default": 2
     },
-    "mainIconText": {
+    "mainIcon": {
       "type": "component",
       "component": "global.icon-text",
       "repeatable": false
@@ -55,6 +50,16 @@
       "component": "event.event-brochure",
       "repeatable": false,
       "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "dark",
+      "enum": [
+        "dark",
+        "soft",
+        "brand"
+      ]
     }
   },
   "config": {}

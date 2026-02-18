@@ -45,10 +45,15 @@
       "component": "global.icon-text",
       "repeatable": false
     },
-    "styles": {
-      "type": "component",
-      "component": "global.styles",
-      "repeatable": false
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "dark",
+      "enum": [
+        "dark",
+        "soft",
+        "brand"
+      ]
     }
   },
   "config": {}

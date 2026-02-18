@@ -35,12 +35,8 @@ export interface EventEventBrochure extends Struct.ComponentSchema {
   attributes: {
     embedCode: Schema.Attribute.Text & Schema.Attribute.Required;
     embedUrl: Schema.Attribute.Text;
-    file: Schema.Attribute.Media<'files'>;
-    fileSize: Schema.Attribute.String;
-    helperText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Interactive Brochure'>;
+    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
     pagesCount: Schema.Attribute.String;
-    poweredBy: Schema.Attribute.String & Schema.Attribute.Required;
     provider: Schema.Attribute.Enumeration<['Canva']> &
       Schema.Attribute.Required;
   };
@@ -112,15 +108,17 @@ export interface EventEventInfoBrochure extends Struct.ComponentSchema {
     ctaButtons: Schema.Attribute.Component<'global.button', true> &
       Schema.Attribute.Required;
     mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
-    mainIconText: Schema.Attribute.Component<'global.icon-text', false>;
+    mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<2>;
-    styles: Schema.Attribute.Component<'global.styles', false>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
     tags: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.Component<'global.text-block', false>;
+    variant: Schema.Attribute.Enumeration<['dark', 'soft', 'brand']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -136,11 +134,13 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
-    styles: Schema.Attribute.Component<'global.styles', false>;
     tag: Schema.Attribute.Component<'event.event-tags', false>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['dark', 'soft', 'brand']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
   };
 }
 
