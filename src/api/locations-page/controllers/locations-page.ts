@@ -13,6 +13,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
       where: {
         type: 'campus'
       },
+      sort: [{ inceptionDate: 'asc' }],
       populate: '*',
     });
 
@@ -20,6 +21,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
       where: {
         type: 'cell-church'
       },
+      sort: [{ inceptionDate: 'asc' }],
       populate: '*',
     });
 
