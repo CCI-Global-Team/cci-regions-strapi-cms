@@ -34,17 +34,6 @@
       "type": "text",
       "required": true
     },
-    "ctaButtons": {
-      "type": "component",
-      "component": "global.button",
-      "repeatable": true,
-      "required": true
-    },
-    "tags": {
-      "type": "component",
-      "component": "event.event-tags",
-      "repeatable": true
-    },
     "brochure": {
       "type": "component",
       "component": "event.event-brochure",
@@ -57,8 +46,7 @@
       "default": "dark",
       "enum": [
         "dark",
-        "soft",
-        "brand"
+        "soft"
       ]
     }
   },

@@ -33,10 +33,9 @@ export interface EventEventBrochure extends Struct.ComponentSchema {
     icon: 'discuss';
   };
   attributes: {
-    embedCode: Schema.Attribute.Text & Schema.Attribute.Required;
+    embedCode: Schema.Attribute.Text;
     embedUrl: Schema.Attribute.Text;
     file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
-    pagesCount: Schema.Attribute.String;
     provider: Schema.Attribute.Enumeration<['Canva']> &
       Schema.Attribute.Required;
   };
@@ -91,8 +90,6 @@ export interface EventEventInfoBrochure extends Struct.ComponentSchema {
   attributes: {
     brochure: Schema.Attribute.Component<'event.event-brochure', false> &
       Schema.Attribute.Required;
-    ctaButtons: Schema.Attribute.Component<'global.button', true> &
-      Schema.Attribute.Required;
     mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
     mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
@@ -100,9 +97,8 @@ export interface EventEventInfoBrochure extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<2>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
-    tags: Schema.Attribute.Component<'event.event-tags', true>;
     title: Schema.Attribute.Component<'global.text-block', false>;
-    variant: Schema.Attribute.Enumeration<['dark', 'soft', 'brand']> &
+    variant: Schema.Attribute.Enumeration<['dark', 'soft']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'dark'>;
   };
@@ -261,6 +257,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
         'CalendarDays',
         'ClockCircleLinear',
         'Coins',
+        'Download',
         'FileText',
         'Gift',
         'GlobalLinear',
