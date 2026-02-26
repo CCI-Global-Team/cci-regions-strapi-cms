@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_event_event_faqs",
+  "collectionName": "components_section_fa_qs",
   "info": {
-    "displayName": "EventFaqs",
-    "icon": "quote"
+    "displayName": "FAQs",
+    "icon": "server"
   },
   "options": {},
   "attributes": {
     "order": {
       "type": "integer",
-      "default": 2
+      "required": false
     },
     "tagline": {
       "type": "component",
@@ -18,8 +18,7 @@
     "title": {
       "type": "component",
       "component": "global.text-block",
-      "repeatable": false,
-      "required": true
+      "repeatable": false
     }
   },
   "config": {}

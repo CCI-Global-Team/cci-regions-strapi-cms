@@ -14,6 +14,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
         type: 'campus'
       },
       populate: '*',
+      locale: response.data.locale,
     });
 
     const cellChurches = await strapi.documents('api::campus.campus').findMany({
@@ -21,6 +22,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
         type: 'cell-church'
       },
       populate: '*',
+      locale: response.data.locale,
     });
 
     return {

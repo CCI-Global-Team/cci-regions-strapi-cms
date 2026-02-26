@@ -23,8 +23,7 @@
           "localized": false
         }
       },
-      "default": "GivePage",
-      "required": true
+      "default": "GivePage"
     },
     "header": {
       "type": "component",
@@ -34,6 +33,36 @@
         }
       },
       "component": "section.hero",
+      "repeatable": false
+    },
+    "startGiving": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.start-giving",
+      "repeatable": false
+    },
+    "others": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.text",
+      "repeatable": false
+    },
+    "faqsSection": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "section.fa-qs",
       "repeatable": false
     }
   }

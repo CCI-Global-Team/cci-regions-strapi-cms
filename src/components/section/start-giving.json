@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_section_start_givings",
+  "info": {
+    "displayName": "StartGiving",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "global.text-block",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

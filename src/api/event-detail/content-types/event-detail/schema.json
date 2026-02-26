@@ -65,6 +65,12 @@
         "event.event-info-brochure"
       ]
     },
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "event_detail"
+    },
     "faqsSection": {
       "type": "component",
       "pluginOptions": {
@@ -72,14 +78,8 @@
           "localized": true
         }
       },
-      "component": "event.event-faqs",
+      "component": "section.fa-qs",
       "repeatable": false
-    },
-    "faqs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::faq.faq",
-      "mappedBy": "event_detail"
     }
   }
 }
