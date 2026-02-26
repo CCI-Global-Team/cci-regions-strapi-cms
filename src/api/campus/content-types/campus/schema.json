@@ -197,6 +197,12 @@
       "relation": "oneToMany",
       "target": "api::group.group",
       "mappedBy": "campus"
+    },
+    "bankAccounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bank-account.bank-account",
+      "mappedBy": "campus"
     }
   }
 }

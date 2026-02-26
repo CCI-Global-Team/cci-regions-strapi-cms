@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "event_details",
+  "kind": "singleType",
+  "collectionName": "give_pages",
   "info": {
-    "singularName": "event-detail",
-    "pluralName": "event-details",
-    "displayName": "EventDetail"
+    "singularName": "give-page",
+    "pluralName": "give-pages",
+    "displayName": "GivePage"
   },
   "options": {
     "draftAndPublish": true
@@ -15,22 +15,15 @@
     }
   },
   "attributes": {
-    "title": {
+    "pageName": {
       "type": "string",
       "private": true,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
-      "default": "EventDetails",
-      "required": false
-    },
-    "event": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::event.event",
-      "mappedBy": "event_detail"
+      "default": "GivePage"
     },
     "header": {
       "type": "component",
@@ -39,36 +32,28 @@
           "localized": true
         }
       },
-      "component": "event.event-hero",
-      "repeatable": false,
-      "required": true
+      "component": "section.hero",
+      "repeatable": false
     },
-    "engage": {
+    "startGiving": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "event.event-engage",
+      "component": "section.start-giving",
       "repeatable": false
     },
-    "resources": {
-      "type": "dynamiczone",
+    "others": {
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "components": [
-        "event.event-info-coming-soon"
-      ]
-    },
-    "faqs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::faq.faq",
-      "mappedBy": "event_detail"
+      "component": "global.text",
+      "repeatable": false
     },
     "faqsSection": {
       "type": "component",

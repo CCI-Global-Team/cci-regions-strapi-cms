@@ -47,20 +47,6 @@ export interface EventEventEngage extends Struct.ComponentSchema {
   };
 }
 
-export interface EventEventFaqs extends Struct.ComponentSchema {
-  collectionName: 'components_event_event_faqs';
-  info: {
-    displayName: 'EventFaqs';
-    icon: 'quote';
-  };
-  attributes: {
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
-    tagline: Schema.Attribute.Component<'global.badge', false>;
-    title: Schema.Attribute.Component<'global.text-block', false> &
-      Schema.Attribute.Required;
-  };
-}
-
 export interface EventEventHero extends Struct.ComponentSchema {
   collectionName: 'components_event_event_heroes';
   info: {
@@ -386,6 +372,19 @@ export interface SectionContact extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionFaQs extends Struct.ComponentSchema {
+  collectionName: 'components_section_fa_qs';
+  info: {
+    displayName: 'FAQs';
+    icon: 'server';
+  };
+  attributes: {
+    order: Schema.Attribute.Integer;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -482,6 +481,17 @@ export interface SectionMissionVision extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionOthersGiving extends Struct.ComponentSchema {
+  collectionName: 'components_section_others_givings';
+  info: {
+    displayName: 'OthersGiving';
+    icon: 'gift';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionOurApproach extends Struct.ComponentSchema {
   collectionName: 'components_section_our_approaches';
   info: {
@@ -555,6 +565,17 @@ export interface SectionReadyToVisit extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionStartGiving extends Struct.ComponentSchema {
+  collectionName: 'components_section_start_givings';
+  info: {
+    displayName: 'StartGiving';
+    icon: 'hashtag';
+  };
+  attributes: {
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionStepsToGetConnected extends Struct.ComponentSchema {
   collectionName: 'components_section_steps_to_get_connecteds';
   info: {
@@ -619,7 +640,6 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'event.event-action-card': EventEventActionCard;
       'event.event-engage': EventEventEngage;
-      'event.event-faqs': EventEventFaqs;
       'event.event-hero': EventEventHero;
       'event.event-info-coming-soon': EventEventInfoComingSoon;
       'event.event-tags': EventEventTags;
@@ -635,6 +655,7 @@ declare module '@strapi/strapi' {
       'section.about-pastors': SectionAboutPastors;
       'section.become-a-member': SectionBecomeAMember;
       'section.contact': SectionContact;
+      'section.fa-qs': SectionFaQs;
       'section.hero': SectionHero;
       'section.interest-groups': SectionInterestGroups;
       'section.join-service-unit': SectionJoinServiceUnit;
@@ -642,11 +663,13 @@ declare module '@strapi/strapi' {
       'section.locations': SectionLocations;
       'section.maps': SectionMaps;
       'section.mission-vision': SectionMissionVision;
+      'section.others-giving': SectionOthersGiving;
       'section.our-approach': SectionOurApproach;
       'section.our-pastors': SectionOurPastors;
       'section.our-purpose': SectionOurPurpose;
       'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
+      'section.start-giving': SectionStartGiving;
       'section.steps-to-get-connected': SectionStepsToGetConnected;
       'section.upcoming-events': SectionUpcomingEvents;
       'section.ways-to-connect': SectionWaysToConnect;

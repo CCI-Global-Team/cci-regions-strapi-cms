@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_others_givings",
+  "info": {
+    "displayName": "OthersGiving",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
