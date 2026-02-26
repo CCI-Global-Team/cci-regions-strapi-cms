@@ -756,6 +756,87 @@ export interface ApiAnnouncementsPageAnnouncementsPage
   };
 }
 
+export interface ApiBankAccountBankAccount extends Struct.CollectionTypeSchema {
+  collectionName: 'bank_accounts';
+  info: {
+    displayName: 'BankAccount';
+    pluralName: 'bank-accounts';
+    singularName: 'bank-account';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    accountName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    accountNumber: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    iban: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bank-account.bank-account'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    paymentProcessor: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::payment-processor.payment-processor'
+    >;
+    paymentUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    sortCode: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    type: Schema.Attribute.Enumeration<['main', 'others']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
   collectionName: 'campuses';
   info: {
@@ -790,6 +871,10 @@ export interface ApiCampusCampus extends Struct.CollectionTypeSchema {
     announcements: Schema.Attribute.Relation<
       'manyToMany',
       'api::announcement.announcement'
+    >;
+    bankAccounts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bank-account.bank-account'
     >;
     bannerImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
@@ -1102,7 +1187,7 @@ export interface ApiEventDetailEventDetail extends Struct.CollectionTypeSchema {
       }>;
     event: Schema.Attribute.Relation<'oneToOne', 'api::event.event'>;
     faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
-    faqsSection: Schema.Attribute.Component<'event.event-faqs', false> &
+    faqsSection: Schema.Attribute.Component<'section.fa-qs', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1121,7 +1206,9 @@ export interface ApiEventDetailEventDetail extends Struct.CollectionTypeSchema {
       'api::event-detail.event-detail'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    resources: Schema.Attribute.DynamicZone<['event.event-info-coming-soon']> &
+    resources: Schema.Attribute.DynamicZone<
+      ['event.event-info-coming-soon', 'event.event-info-brochure']
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1182,7 +1269,6 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
         };
       }>;
     endDate: Schema.Attribute.DateTime &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1509,6 +1595,69 @@ export interface ApiGetInvolvedPageGetInvolvedPage
       }> &
       Schema.Attribute.DefaultTo<'GetInvolvedPage'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGivePageGivePage extends Struct.SingleTypeSchema {
+  collectionName: 'give_pages';
+  info: {
+    displayName: 'GivePage';
+    pluralName: 'give-pages';
+    singularName: 'give-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faqsSection: Schema.Attribute.Component<'section.fa-qs', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    header: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::give-page.give-page'
+    >;
+    others: Schema.Attribute.Component<'global.text', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'GivePage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    startGiving: Schema.Attribute.Component<'section.start-giving', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1885,14 +2034,14 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     lastName: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -1912,7 +2061,7 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
     order: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     picture: Schema.Attribute.Media<'images'> &
@@ -1933,6 +2082,75 @@ export interface ApiPastorPastor extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaymentProcessorPaymentProcessor
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'payment_processors';
+  info: {
+    displayName: 'PaymentProcessor';
+    pluralName: 'payment-processors';
+    singularName: 'payment-processor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    currency: Schema.Attribute.Enumeration<
+      ['aud', 'cad', 'eur', 'gbp', 'ngn', 'usd']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    icon: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::payment-processor.payment-processor'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    symbol: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -2689,6 +2907,7 @@ declare module '@strapi/strapi' {
       'api::address.address': ApiAddressAddress;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::announcements-page.announcements-page': ApiAnnouncementsPageAnnouncementsPage;
+      'api::bank-account.bank-account': ApiBankAccountBankAccount;
       'api::campus.campus': ApiCampusCampus;
       'api::community-page.community-page': ApiCommunityPageCommunityPage;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
@@ -2699,6 +2918,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::fixed-event.fixed-event': ApiFixedEventFixedEvent;
       'api::get-involved-page.get-involved-page': ApiGetInvolvedPageGetInvolvedPage;
+      'api::give-page.give-page': ApiGivePageGivePage;
       'api::group-leader.group-leader': ApiGroupLeaderGroupLeader;
       'api::group.group': ApiGroupGroup;
       'api::home-page.home-page': ApiHomePageHomePage;
@@ -2706,6 +2926,7 @@ declare module '@strapi/strapi' {
       'api::map.map': ApiMapMap;
       'api::media-page.media-page': ApiMediaPageMediaPage;
       'api::pastor.pastor': ApiPastorPastor;
+      'api::payment-processor.payment-processor': ApiPaymentProcessorPaymentProcessor;
       'api::sermon.sermon': ApiSermonSermon;
       'api::start-here-page.start-here-page': ApiStartHerePageStartHerePage;
       'api::unit.unit': ApiUnitUnit;

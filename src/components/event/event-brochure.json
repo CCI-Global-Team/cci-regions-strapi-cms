@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_event_event_brochures",
+  "info": {
+    "displayName": "EventBrochure",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "provider": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Canva"
+      ]
+    },
+    "embedCode": {
+      "type": "text",
+      "required": false
+    },
+    "embedUrl": {
+      "type": "text"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -26,6 +26,21 @@ export interface EventEventActionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface EventEventBrochure extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_brochures';
+  info: {
+    displayName: 'EventBrochure';
+    icon: 'discuss';
+  };
+  attributes: {
+    embedCode: Schema.Attribute.Text;
+    embedUrl: Schema.Attribute.Text;
+    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    provider: Schema.Attribute.Enumeration<['Canva']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface EventEventEngage extends Struct.ComponentSchema {
   collectionName: 'components_event_event_engages';
   info: {
@@ -40,20 +55,6 @@ export interface EventEventEngage extends Struct.ComponentSchema {
         },
         number
       >;
-    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
-    tagline: Schema.Attribute.Component<'global.badge', false>;
-    title: Schema.Attribute.Component<'global.text-block', false> &
-      Schema.Attribute.Required;
-  };
-}
-
-export interface EventEventFaqs extends Struct.ComponentSchema {
-  collectionName: 'components_event_event_faqs';
-  info: {
-    displayName: 'EventFaqs';
-    icon: 'quote';
-  };
-  attributes: {
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
     title: Schema.Attribute.Component<'global.text-block', false> &
@@ -80,6 +81,29 @@ export interface EventEventHero extends Struct.ComponentSchema {
   };
 }
 
+export interface EventEventInfoBrochure extends Struct.ComponentSchema {
+  collectionName: 'components_event_event_info_brochures';
+  info: {
+    displayName: 'EventInfoBrochure';
+    icon: 'server';
+  };
+  attributes: {
+    brochure: Schema.Attribute.Component<'event.event-brochure', false> &
+      Schema.Attribute.Required;
+    mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
+    mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
+    mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<2>;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+    variant: Schema.Attribute.Enumeration<['dark', 'soft']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
+  };
+}
+
 export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
   collectionName: 'components_event_event_info_coming_soons';
   info: {
@@ -87,19 +111,18 @@ export interface EventEventInfoComingSoon extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    bgColor: Schema.Attribute.String;
     ctaButton: Schema.Attribute.Component<'global.button', false>;
-    icon: Schema.Attribute.Media<'images'>;
     mainContent: Schema.Attribute.Text & Schema.Attribute.Required;
-    mainIconColor: Schema.Attribute.String;
-    mainIconText: Schema.Attribute.String;
+    mainIcon: Schema.Attribute.Component<'global.icon-text', false>;
     mainTitle: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<2>;
     tag: Schema.Attribute.Component<'event.event-tags', false>;
     tagline: Schema.Attribute.Component<'global.badge', false>;
-    textColor: Schema.Attribute.String;
     title: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
+    variant: Schema.Attribute.Enumeration<['dark', 'soft', 'brand']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -234,6 +257,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
         'CalendarDays',
         'ClockCircleLinear',
         'Coins',
+        'Download',
         'FileText',
         'Gift',
         'GlobalLinear',
@@ -386,6 +410,19 @@ export interface SectionContact extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionFaQs extends Struct.ComponentSchema {
+  collectionName: 'components_section_fa_qs';
+  info: {
+    displayName: 'FAQs';
+    icon: 'server';
+  };
+  attributes: {
+    order: Schema.Attribute.Integer;
+    tagline: Schema.Attribute.Component<'global.badge', false>;
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionHero extends Struct.ComponentSchema {
   collectionName: 'components_section_heroes';
   info: {
@@ -482,6 +519,17 @@ export interface SectionMissionVision extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionOthersGiving extends Struct.ComponentSchema {
+  collectionName: 'components_section_others_givings';
+  info: {
+    displayName: 'OthersGiving';
+    icon: 'gift';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionOurApproach extends Struct.ComponentSchema {
   collectionName: 'components_section_our_approaches';
   info: {
@@ -555,6 +603,17 @@ export interface SectionReadyToVisit extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionStartGiving extends Struct.ComponentSchema {
+  collectionName: 'components_section_start_givings';
+  info: {
+    displayName: 'StartGiving';
+    icon: 'hashtag';
+  };
+  attributes: {
+    title: Schema.Attribute.Component<'global.text-block', false>;
+  };
+}
+
 export interface SectionStepsToGetConnected extends Struct.ComponentSchema {
   collectionName: 'components_section_steps_to_get_connecteds';
   info: {
@@ -618,9 +677,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'event.event-action-card': EventEventActionCard;
+      'event.event-brochure': EventEventBrochure;
       'event.event-engage': EventEventEngage;
-      'event.event-faqs': EventEventFaqs;
       'event.event-hero': EventEventHero;
+      'event.event-info-brochure': EventEventInfoBrochure;
       'event.event-info-coming-soon': EventEventInfoComingSoon;
       'event.event-tags': EventEventTags;
       'global.badge': GlobalBadge;
@@ -635,6 +695,7 @@ declare module '@strapi/strapi' {
       'section.about-pastors': SectionAboutPastors;
       'section.become-a-member': SectionBecomeAMember;
       'section.contact': SectionContact;
+      'section.fa-qs': SectionFaQs;
       'section.hero': SectionHero;
       'section.interest-groups': SectionInterestGroups;
       'section.join-service-unit': SectionJoinServiceUnit;
@@ -642,11 +703,13 @@ declare module '@strapi/strapi' {
       'section.locations': SectionLocations;
       'section.maps': SectionMaps;
       'section.mission-vision': SectionMissionVision;
+      'section.others-giving': SectionOthersGiving;
       'section.our-approach': SectionOurApproach;
       'section.our-pastors': SectionOurPastors;
       'section.our-purpose': SectionOurPurpose;
       'section.plan-your-visit': SectionPlanYourVisit;
       'section.ready-to-visit': SectionReadyToVisit;
+      'section.start-giving': SectionStartGiving;
       'section.steps-to-get-connected': SectionStepsToGetConnected;
       'section.upcoming-events': SectionUpcomingEvents;
       'section.ways-to-connect': SectionWaysToConnect;

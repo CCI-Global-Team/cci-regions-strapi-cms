@@ -81,7 +81,7 @@
           "localized": true
         }
       },
-      "required": true
+      "required": false
     },
     "url": {
       "type": "string",

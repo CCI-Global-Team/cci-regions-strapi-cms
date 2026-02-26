@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "pastors",
+  "collectionName": "bank_accounts",
   "info": {
-    "singularName": "pastor",
-    "pluralName": "pastors",
-    "displayName": "Pastor"
+    "singularName": "bank-account",
+    "pluralName": "bank-accounts",
+    "displayName": "BankAccount"
   },
   "options": {
     "draftAndPublish": true
@@ -15,16 +15,7 @@
     }
   },
   "attributes": {
-    "prefix": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "default": "Pastor"
-    },
-    "firstName": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -33,7 +24,7 @@
       },
       "required": true
     },
-    "lastName": {
+    "accountName": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -42,35 +33,15 @@
       },
       "required": true
     },
-    "nickname": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "picture": {
-      "type": "media",
+    "accountNumber": {
+      "type": "biginteger",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "roleTitle": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
       }
     },
-    "meetingLink": {
+    "iban": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -78,19 +49,45 @@
         }
       }
     },
-    "order": {
-      "type": "integer",
+    "paymentUrl": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
+    },
+    "sortCode": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "paymentProcessor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment-processor.payment-processor"
     },
     "campus": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::campus.campus",
-      "mappedBy": "resident"
+      "inversedBy": "bankAccounts"
+    },
+    "type": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "enum": [
+        "main",
+        "others"
+      ]
     }
   }
 }
