@@ -606,11 +606,17 @@ export interface SectionReadyToVisit extends Struct.ComponentSchema {
 export interface SectionStartGiving extends Struct.ComponentSchema {
   collectionName: 'components_section_start_givings';
   info: {
-    displayName: 'StartGiving';
+    displayName: 'Givings';
     icon: 'hashtag';
   };
   attributes: {
-    title: Schema.Attribute.Component<'global.text-block', false>;
+    givingOptions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::giving-option.giving-option'
+    >;
+    mainTitle: Schema.Attribute.Component<'global.text-block', false> &
+      Schema.Attribute.Required;
+    secondaryTitle: Schema.Attribute.String;
   };
 }
 

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "payment_processors",
+  "collectionName": "banks",
   "info": {
-    "singularName": "payment-processor",
-    "pluralName": "payment-processors",
-    "displayName": "PaymentProcessor"
+    "singularName": "bank",
+    "pluralName": "banks",
+    "displayName": "Bank"
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +19,7 @@
       "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "required": true
@@ -31,7 +31,23 @@
           "localized": false
         }
       },
-      "required": true
+      "required": true,
+      "unique": true
+    },
+    "countryCode": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "enum": [
+        "CA",
+        "US",
+        "GB",
+        "AU"
+      ]
     },
     "logo": {
       "type": "media",
@@ -45,32 +61,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "currency": {
-      "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true,
-      "enum": [
-        "aud",
-        "cad",
-        "eur",
-        "gbp",
-        "ngn",
-        "usd"
-      ]
-    },
-    "symbol": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
     }
   }
 }

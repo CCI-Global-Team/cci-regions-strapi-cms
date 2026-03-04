@@ -35,7 +35,7 @@
       "component": "section.hero",
       "repeatable": false
     },
-    "startGiving": {
+    "givingSection": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
@@ -43,16 +43,6 @@
         }
       },
       "component": "section.start-giving",
-      "repeatable": false
-    },
-    "others": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "global.text",
       "repeatable": false
     },
     "faqsSection": {

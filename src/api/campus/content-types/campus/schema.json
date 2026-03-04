@@ -198,10 +198,10 @@
       "target": "api::group.group",
       "mappedBy": "campus"
     },
-    "bankAccounts": {
+    "givingOptions": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::bank-account.bank-account",
+      "target": "api::giving-option.giving-option",
       "mappedBy": "campus"
     }
   }
