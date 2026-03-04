@@ -5,23 +5,45 @@
 import { factories } from '@strapi/strapi';
 import type { Context } from 'koa';
 
-const mappedBankAccounts = (data: Record<any, any>) => (
-  data.map(({ documentId, accountName, accountNumber, iban, paymentUrl, sortCode, locale, campus: { name }, paymentProcessor }) => ({
+const mappedGivingOptions = (data: Record<any, any>) => (
+  data.map(({
     documentId,
+    locale,
+    order,
     name,
+    type,
+    isPrimary,
     accountName,
     accountNumber,
     iban,
-    paymentUrl,
     sortCode,
+    swiftCode,
+    routingNumber,
+    actionValue,
+    actionUrl,
+    instructions,
+    campus,
+    bank,
+    paymentProcessor
+  }) => ({
+    documentId,
     locale,
-    paymentProcessor: {
-      name: paymentProcessor.name,
-      slug: paymentProcessor.slug,
-      logo: paymentProcessor.icon?.url,
-      currency: paymentProcessor.currency,
-      symbol: paymentProcessor.symbol
-    }
+    order,
+    name,
+    campusName: campus?.name ?? null,
+    type,
+    isPrimary,
+    accountName,
+    accountNumber,
+    iban,
+    sortCode,
+    swiftCode,
+    routingNumber,
+    actionValue,
+    actionUrl,
+    instructions,
+    bank,
+    paymentProcessor
   }))
 )
 
@@ -29,22 +51,25 @@ export default factories.createCoreController('api::give-page.give-page', ({ str
   async find(ctx: Context) {
     const response = await super.find(ctx);
 
-    const bankAccounts = await strapi.documents('api::bank-account.bank-account').findMany({
+    const options = await strapi.documents('api::giving-option.giving-option').findMany({
       status: 'published',
       populate: {
         campus: {
           populate: '*'
         },
         paymentProcessor: {
-          populate: ['icon'],
+          fields: ['documentId', 'name', 'slug', 'currency', 'symbol', 'locale'],
+          populate: ['logo'],
         },
+        bank: {
+          fields: ['documentId', 'name', 'slug', 'countryCode', 'locale'],
+          populate: ['logo']
+        }
       },
       locale: response.data.locale
     });
 
-    const mainBankAccounts = mappedBankAccounts(bankAccounts.filter((b) => b.type === 'main'))
-
-    const otherBankAccounts = mappedBankAccounts(bankAccounts.filter((b) => (b.type !== 'main')))
+    const givingOptions = mappedGivingOptions(options)
 
     const faqs = await strapi.documents('api::faq.faq').findMany({
       status: 'published',
@@ -58,13 +83,9 @@ export default factories.createCoreController('api::give-page.give-page', ({ str
       ...response,
       data: {
         ...response?.data,
-        startGiving: {
-          ...response.data.startGiving,
-          accounts: mainBankAccounts
-        },
-        others: {
-          ...response.data.others,
-          accounts: otherBankAccounts
+        givingSection: {
+          ...response.data.givingSection,
+          givingOptions
         },
         faqsSection: {
           ...response.data.faqsSection,
