@@ -610,10 +610,6 @@ export interface SectionStartGiving extends Struct.ComponentSchema {
     icon: 'hashtag';
   };
   attributes: {
-    givingOptions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::giving-option.giving-option'
-    >;
     mainTitle: Schema.Attribute.Component<'global.text-block', false> &
       Schema.Attribute.Required;
     secondaryTitle: Schema.Attribute.String;

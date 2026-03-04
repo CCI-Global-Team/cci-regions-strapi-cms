@@ -14,11 +14,6 @@
     },
     "secondaryTitle": {
       "type": "string"
-    },
-    "givingOptions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::giving-option.giving-option"
     }
   },
   "config": {}
