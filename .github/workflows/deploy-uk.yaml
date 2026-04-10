@@ -1,9 +1,9 @@
-name: Canada - Build and deploy application to ECS
+name: UK - Build and deploy application to ECS
 
 on:
   push:
     branches:
-      - production-ca
+      - production-uk
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.ACTIONS_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.ACTIONS_AWS_SECRET_ACCESS_KEY }}
-          aws-region: ca-central-1
+          aws-region: eu-north-1
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -27,9 +27,9 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: axios/canada-strapi-cms
+          ECR_REPOSITORY: axios/uk-strapi-cms
           IMAGE_TAG: ${{ github.sha }}
-          STRAPI_ADMIN_REGION: ca
+          STRAPI_ADMIN_REGION: uk
         run: |
           docker build --build-arg STRAPI_ADMIN_REGION=$STRAPI_ADMIN_REGION -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -37,19 +37,19 @@ jobs:
 
       - name: Download dev task definition
         run: |
-          aws ecs describe-task-definition --task-definition axios-ca-strapi-cms --query taskDefinition > axios-ca-strapi-cms.json
+          aws ecs describe-task-definition --task-definition axios-uk-strapi-cms --query taskDefinition > axios-uk-strapi-cms.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         id: render-container
         with:
-          task-definition: axios-ca-strapi-cms.json
-          container-name: axios-ca-strapi-cms
+          task-definition: axios-uk-strapi-cms.json
+          container-name: axios-uk-strapi-cms
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-container.outputs.task-definition }}
-          service: axios-ca-strapi-cms-service-6ddpe39u
+          service: axios-uk-strapi-cms-service
           cluster: axios
