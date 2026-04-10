@@ -1,14 +1,31 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
-import MenuLogo from './extensions/logo/menu-logo.png';
+import logoCa from './extensions/logo/logo-ca.png';
+import logoUs from './extensions/logo/logo-us.png';
+import logoUk from './extensions/logo/logo-uk.png';
+import logoGlobal from './extensions/logo/logo-global.png';
+
+const region = process.env.STRAPI_ADMIN_REGION;
+
+const regionNames = {
+  ca: 'CCI Canada',
+  us: 'CCI United States',
+  uk: 'CCI United Kingdom',
+  default: 'CCI Global'
+};
+const regionName = regionNames[region as keyof typeof regionNames] || regionNames.default;
+
+const logos = {
+  ca: logoCa,
+  us: logoUs,
+  uk: logoUk,
+  default: logoGlobal,
+};
+const MenuLogo = logos[region as keyof typeof logos] || logos.default;
 
 export default {
   config: {
-    auth: {
-      logo: MenuLogo,
-    },
-    menu: {
-      logo: MenuLogo,
-    },
+    auth: { logo: MenuLogo },
+    menu: { logo: MenuLogo },
     theme: {
       light: {
         colors: {
@@ -35,14 +52,14 @@ export default {
         },
       },
     },
-    locales: ['fr-CA'],
+    locales: ['en', 'fr-CA', 'fr', 'es'],
     translations: {
       en: {
         "Auth.form.welcome.title": "Welcome Admin 👋",
         "Auth.form.welcome.subtitle": "Log in to your account",
         "Auth.form.email.placeholder": "e.g. admin@joincci.org",
         "HomePage.header.title": "Hello, {name}",
-        "HomePage.header.subtitle": "Welcome to CCI Canada's administration panel",
+        "HomePage.header.subtitle": `Welcome to ${regionName} administration panel`,
         "Auth.form.register.subtitle": "Setup your account"
       }
     },

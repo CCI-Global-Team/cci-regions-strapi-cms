@@ -16,6 +16,12 @@ RUN --mount=type=cache,id=yarn,target=/yarn/store yarn install --production
 # Build (admin panel)
 # --------------------
 FROM base AS build
+
+ARG STRAPI_ADMIN_REGION
+ENV STRAPI_ADMIN_REGION=$STRAPI_ADMIN_REGION
+
+RUN echo "Building admin for region: $STRAPI_ADMIN_REGION"
+
 RUN --mount=type=cache,id=yarn,target=/yarn/store yarn install
 RUN yarn build
 
