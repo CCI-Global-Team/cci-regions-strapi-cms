@@ -1,6 +1,6 @@
 const loadS3Credentials = (env: string, accessKeyId: string, secretAccessKey: string) => {
-  if (env === 'production')
-    return {}
+  // if (env === 'production')
+    // return {}
 
   return {
     credentials: { accessKeyId, secretAccessKey }
