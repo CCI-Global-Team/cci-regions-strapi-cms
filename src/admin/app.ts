@@ -12,7 +12,7 @@ const regionNames = {
   uk: 'CCI United Kingdom',
   default: 'CCI Global'
 };
-const regionName = regionNames[region as keyof typeof logos] || regionNames.default;
+const regionName = regionNames[region as keyof typeof regionNames] || regionNames.default;
 
 const logos = {
   ca: logoCa,
