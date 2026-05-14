@@ -18,7 +18,23 @@
       "required": true
     },
     "currency": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": [
+        "CAD",
+        "USD",
+        "NGN",
+        "GBP",
+        "EUR",
+        "MXN",
+        "BRL",
+        "PLN",
+        "NZD",
+        "GHS",
+        "KES",
+        "ZWL",
+        "ZAR",
+        "UGX"
+      ],
       "default": "CAD"
     },
     "frequency": {

@@ -8,7 +8,7 @@ export interface CampaignAboutCentre extends Struct.ComponentSchema {
   };
   attributes: {
     contentMarkdown: Schema.Attribute.RichText & Schema.Attribute.Required;
-    sectionLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     stats: Schema.Attribute.Component<'campaign.stat', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -67,7 +67,25 @@ export interface CampaignGivingPlan extends Struct.ComponentSchema {
     action: Schema.Attribute.Component<'global.button', false>;
     amount: Schema.Attribute.Decimal & Schema.Attribute.Required;
     badge: Schema.Attribute.String;
-    currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'CAD'>;
+    currency: Schema.Attribute.Enumeration<
+      [
+        'CAD',
+        'USD',
+        'NGN',
+        'GBP',
+        'EUR',
+        'MXN',
+        'BRL',
+        'PLN',
+        'NZD',
+        'GHS',
+        'KES',
+        'ZWL',
+        'ZAR',
+        'UGX',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'CAD'>;
     description: Schema.Attribute.Text;
     duration: Schema.Attribute.Component<'campaign.duration', false>;
     frequency: Schema.Attribute.Component<'campaign.frequency', false> &
@@ -88,7 +106,7 @@ export interface CampaignGivingPlans extends Struct.ComponentSchema {
   attributes: {
     plans: Schema.Attribute.Component<'campaign.giving-plan', true> &
       Schema.Attribute.Required;
-    sectionLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -108,7 +126,7 @@ export interface CampaignMediaGallery extends Struct.ComponentSchema {
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'auto'>;
-    sectionLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -147,7 +165,7 @@ export interface CampaignParticipation extends Struct.ComponentSchema {
     footerText: Schema.Attribute.Text;
     remainingLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'still needed'>;
-    sectionLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     showDotGrid: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     subtitle: Schema.Attribute.String;
     targetCount: Schema.Attribute.Integer & Schema.Attribute.Required;
@@ -169,12 +187,30 @@ export interface CampaignProgress extends Struct.ComponentSchema {
   attributes: {
     actions: Schema.Attribute.Component<'global.button', true>;
     campaignEndDate: Schema.Attribute.DateTime;
-    currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'CAD'>;
+    currency: Schema.Attribute.Enumeration<
+      [
+        'CAD',
+        'USD',
+        'NGN',
+        'GBP',
+        'EUR',
+        'MXN',
+        'BRL',
+        'PLN',
+        'NZD',
+        'GHS',
+        'KES',
+        'ZWL',
+        'ZAR',
+        'UGX',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'CAD'>;
     goalAmount: Schema.Attribute.Decimal & Schema.Attribute.Required;
     pledgeCount: Schema.Attribute.Integer;
     progressLabel: Schema.Attribute.String;
     raisedAmount: Schema.Attribute.Decimal & Schema.Attribute.Required;
-    sectionLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     showCountdown: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     showProgressBar: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
@@ -498,6 +534,23 @@ export interface GlobalIconText extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     label: Schema.Attribute.String;
     labelColor: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalSectionLabel extends Struct.ComponentSchema {
+  collectionName: 'components_global_section_labels';
+  info: {
+    displayName: 'SectionLabel';
+    icon: 'quote';
+  };
+  attributes: {
+    colorVariant: Schema.Attribute.Enumeration<
+      ['brand-red', 'black', 'white']
+    > &
+      Schema.Attribute.DefaultTo<'black'>;
+    decoration: Schema.Attribute.Enumeration<['none', 'side-lines']> &
+      Schema.Attribute.DefaultTo<'none'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -915,6 +968,7 @@ declare module '@strapi/strapi' {
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
       'global.icon-text': GlobalIconText;
+      'global.section-label': GlobalSectionLabel;
       'global.styles': GlobalStyles;
       'global.text': GlobalText;
       'global.text-block': GlobalTextBlock;

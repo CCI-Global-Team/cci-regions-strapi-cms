@@ -7,7 +7,9 @@
   "options": {},
   "attributes": {
     "sectionLabel": {
-      "type": "string"
+      "type": "component",
+      "component": "global.section-label",
+      "repeatable": false
     },
     "title": {
       "type": "string",
@@ -31,7 +33,23 @@
       "type": "integer"
     },
     "currency": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": [
+        "CAD",
+        "USD",
+        "NGN",
+        "GBP",
+        "EUR",
+        "MXN",
+        "BRL",
+        "PLN",
+        "NZD",
+        "GHS",
+        "KES",
+        "ZWL",
+        "ZAR",
+        "UGX"
+      ],
       "default": "CAD"
     },
     "progressLabel": {
