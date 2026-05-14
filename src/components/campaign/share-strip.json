@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_campaign_share_strips",
+  "info": {
+    "displayName": "ShareStrip",
+    "icon": "share"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Share Campaign"
+    },
+    "enableEmail": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableNativeShare": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableCopyLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "shareTitle": {
+      "type": "string"
+    },
+    "shareText": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_campaign_participations",
+  "info": {
+    "displayName": "Participation",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "sectionLabel": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleBranded": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "targetCount": {
+      "type": "integer",
+      "required": true
+    },
+    "committedCount": {
+      "type": "integer",
+      "required": true
+    },
+    "unitLabelSingular": {
+      "type": "string",
+      "default": "person"
+    },
+    "unitLabelPlural": {
+      "type": "string",
+      "default": "people"
+    },
+    "committedLabel": {
+      "type": "string",
+      "default": "pledged"
+    },
+    "remainingLabel": {
+      "type": "string",
+      "default": "still needed"
+    },
+    "showDotGrid": {
+      "type": "boolean",
+      "default": true
+    },
+    "footerText": {
+      "type": "text"
+    }
+  }
+}

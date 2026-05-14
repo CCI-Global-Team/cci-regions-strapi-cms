@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_campaign_frequencies",
+  "info": {
+    "displayName": "Frequency",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "interval": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "unit": {
+      "type": "enumeration",
+      "required": true,
+      "enum": ["day", "week", "month", "year"]
+    },
+    "labelOverride": {
+      "type": "string"
+    }
+  }
+}

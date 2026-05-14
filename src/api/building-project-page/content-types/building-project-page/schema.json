@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "building_project_page",
+  "info": {
+    "singularName": "building-project-page",
+    "pluralName": "building-project-pages",
+    "displayName": "BuildingProjectPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "pageName": {
+      "type": "string",
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "BuildingProjectPage",
+      "required": true
+    },
+    "campus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::campus.campus"
+    },
+    "hero": {
+      "type": "component",
+      "component": "section.hero",
+      "repeatable": false,
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "campaign.progress",
+        "campaign.about-centre",
+        "campaign.media-gallery",
+        "campaign.participation",
+        "campaign.giving-plans",
+        "campaign.share-strip"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

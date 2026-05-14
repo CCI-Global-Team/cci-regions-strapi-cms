@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_campaign_media_galleries",
+  "info": {
+    "displayName": "MediaGallery",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "sectionLabel": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "enumeration",
+      "required": true,
+      "default": "auto",
+      "enum": ["auto", "single", "grid", "carousel"]
+    },
+    "items": {
+      "type": "component",
+      "component": "campaign.media-item",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

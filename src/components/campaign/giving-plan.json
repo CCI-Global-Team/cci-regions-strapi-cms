@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_campaign_giving_plans",
+  "info": {
+    "displayName": "GivingPlan",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "CAD"
+    },
+    "frequency": {
+      "type": "component",
+      "component": "campaign.frequency",
+      "repeatable": false,
+      "required": true
+    },
+    "duration": {
+      "type": "component",
+      "component": "campaign.duration",
+      "repeatable": false
+    },
+    "totalAmount": {
+      "type": "decimal"
+    },
+    "totalLabel": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "sortOrder": {
+      "type": "integer"
+    },
+    "action": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  }
+}
