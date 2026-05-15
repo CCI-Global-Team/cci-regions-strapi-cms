@@ -6,12 +6,12 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "badgeText": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text"
+    "caption": {
+      "type": "string"
     },
     "amount": {
       "type": "decimal",
@@ -37,6 +37,9 @@
       ],
       "default": "CAD"
     },
+    "description": {
+      "type": "text"
+    },
     "frequency": {
       "type": "component",
       "component": "campaign.frequency",
@@ -52,9 +55,6 @@
       "type": "decimal"
     },
     "totalLabel": {
-      "type": "string"
-    },
-    "caption": {
       "type": "string"
     },
     "order": {

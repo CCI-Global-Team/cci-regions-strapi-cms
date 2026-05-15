@@ -66,6 +66,7 @@ export interface CampaignGivingPlan extends Struct.ComponentSchema {
   attributes: {
     action: Schema.Attribute.Component<'global.button', false>;
     amount: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    badgeText: Schema.Attribute.String & Schema.Attribute.Required;
     caption: Schema.Attribute.String;
     currency: Schema.Attribute.Enumeration<
       [
@@ -91,7 +92,6 @@ export interface CampaignGivingPlan extends Struct.ComponentSchema {
     frequency: Schema.Attribute.Component<'campaign.frequency', false> &
       Schema.Attribute.Required;
     order: Schema.Attribute.Integer;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     totalAmount: Schema.Attribute.Decimal;
     totalLabel: Schema.Attribute.String;
   };
