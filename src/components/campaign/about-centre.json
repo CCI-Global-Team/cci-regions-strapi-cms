@@ -19,10 +19,10 @@
       "type": "richtext",
       "required": true
     },
-    "stats": {
+    "gallery": {
       "type": "component",
-      "component": "campaign.stat",
-      "repeatable": true
+      "component": "campaign.media-gallery",
+      "repeatable": false
     }
   }
 }

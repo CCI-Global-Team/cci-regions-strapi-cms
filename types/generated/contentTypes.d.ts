@@ -860,7 +860,6 @@ export interface ApiBuildingProjectPageBuildingProjectPage
       [
         'campaign.progress',
         'campaign.about-centre',
-        'campaign.media-gallery',
         'campaign.participation',
         'campaign.giving-plans',
         'campaign.share-strip',

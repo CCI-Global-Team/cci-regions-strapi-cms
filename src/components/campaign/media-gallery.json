@@ -6,17 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "sectionLabel": {
-      "type": "component",
-      "component": "global.section-label",
-      "repeatable": false
-    },
-    "title": {
-      "type": "string"
-    },
-    "subtitle": {
-      "type": "string"
-    },
     "layout": {
       "type": "enumeration",
       "required": true,

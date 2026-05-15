@@ -8,8 +8,8 @@ export interface CampaignAboutCentre extends Struct.ComponentSchema {
   };
   attributes: {
     contentMarkdown: Schema.Attribute.RichText & Schema.Attribute.Required;
+    gallery: Schema.Attribute.Component<'campaign.media-gallery', false>;
     sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
-    stats: Schema.Attribute.Component<'campaign.stat', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -126,9 +126,6 @@ export interface CampaignMediaGallery extends Struct.ComponentSchema {
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'auto'>;
-    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
-    subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
