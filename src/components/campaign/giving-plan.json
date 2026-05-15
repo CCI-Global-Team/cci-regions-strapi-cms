@@ -54,10 +54,10 @@
     "totalLabel": {
       "type": "string"
     },
-    "badge": {
+    "caption": {
       "type": "string"
     },
-    "sortOrder": {
+    "order": {
       "type": "integer"
     },
     "action": {

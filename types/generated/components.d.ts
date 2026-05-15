@@ -66,7 +66,7 @@ export interface CampaignGivingPlan extends Struct.ComponentSchema {
   attributes: {
     action: Schema.Attribute.Component<'global.button', false>;
     amount: Schema.Attribute.Decimal & Schema.Attribute.Required;
-    badge: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
     currency: Schema.Attribute.Enumeration<
       [
         'CAD',
@@ -90,7 +90,7 @@ export interface CampaignGivingPlan extends Struct.ComponentSchema {
     duration: Schema.Attribute.Component<'campaign.duration', false>;
     frequency: Schema.Attribute.Component<'campaign.frequency', false> &
       Schema.Attribute.Required;
-    sortOrder: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     totalAmount: Schema.Attribute.Decimal;
     totalLabel: Schema.Attribute.String;
@@ -159,6 +159,8 @@ export interface CampaignParticipation extends Struct.ComponentSchema {
     committedCount: Schema.Attribute.Integer & Schema.Attribute.Required;
     committedLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'pledged'>;
+    dotGridVariant: Schema.Attribute.Enumeration<['pulse', 'fade', 'none']> &
+      Schema.Attribute.DefaultTo<'none'>;
     footerText: Schema.Attribute.Text;
     remainingLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'still needed'>;
@@ -232,19 +234,6 @@ export interface CampaignShareStrip extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Share Campaign'>;
     shareText: Schema.Attribute.Text;
     shareTitle: Schema.Attribute.String;
-  };
-}
-
-export interface CampaignStat extends Struct.ComponentSchema {
-  collectionName: 'components_campaign_stats';
-  info: {
-    displayName: 'Stat';
-    icon: 'chart-bar';
-  };
-  attributes: {
-    description: Schema.Attribute.String;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    value: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -422,6 +411,7 @@ export interface GlobalButton extends Struct.ComponentSchema {
       [
         'ArrowRight',
         'ArrowUpRight',
+        'BoldRoundArrowRight',
         'CalendarDateLinear',
         'CalendarDays',
         'ClockCircleLinear',
@@ -501,6 +491,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
       [
         'ArrowRight',
         'ArrowUpRight',
+        'BoldRoundArrowRight',
         'CalendarDateLinear',
         'CalendarDays',
         'ClockCircleLinear',
@@ -953,7 +944,6 @@ declare module '@strapi/strapi' {
       'campaign.participation': CampaignParticipation;
       'campaign.progress': CampaignProgress;
       'campaign.share-strip': CampaignShareStrip;
-      'campaign.stat': CampaignStat;
       'event.event-action-card': EventEventActionCard;
       'event.event-brochure': EventEventBrochure;
       'event.event-engage': EventEventEngage;
