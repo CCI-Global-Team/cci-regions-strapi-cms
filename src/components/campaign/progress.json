@@ -1,0 +1,75 @@
+{
+  "collectionName": "components_campaign_progresses",
+  "info": {
+    "displayName": "Progress",
+    "icon": "trending-up"
+  },
+  "options": {},
+  "attributes": {
+    "sectionLabel": {
+      "type": "component",
+      "component": "global.section-label",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titleBranded": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "goalAmount": {
+      "type": "decimal",
+      "required": true
+    },
+    "raisedAmount": {
+      "type": "decimal",
+      "required": true
+    },
+    "pledgeCount": {
+      "type": "integer"
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "CAD",
+        "USD",
+        "NGN",
+        "GBP",
+        "EUR",
+        "MXN",
+        "BRL",
+        "PLN",
+        "NZD",
+        "GHS",
+        "KES",
+        "ZWL",
+        "ZAR",
+        "UGX"
+      ],
+      "default": "CAD"
+    },
+    "progressLabel": {
+      "type": "string"
+    },
+    "showProgressBar": {
+      "type": "boolean",
+      "default": true
+    },
+    "campaignEndDate": {
+      "type": "datetime"
+    },
+    "showCountdown": {
+      "type": "boolean",
+      "default": false
+    },
+    "actions": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": true
+    }
+  }
+}

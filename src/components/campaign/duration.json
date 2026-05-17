@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_campaign_durations",
+  "info": {
+    "displayName": "Duration",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "count": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "unit": {
+      "type": "enumeration",
+      "required": true,
+      "enum": ["day", "week", "month", "year"]
+    },
+    "labelOverride": {
+      "type": "string"
+    }
+  }
+}
