@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_campaign_media_items",
+  "info": {
+    "displayName": "MediaItem",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "videos"]
+    },
+    "mediaType": {
+      "type": "enumeration",
+      "required": true,
+      "default": "image",
+      "enum": ["image", "video"]
+    },
+    "externalVideoUrl": {
+      "type": "string"
+    },
+    "poster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

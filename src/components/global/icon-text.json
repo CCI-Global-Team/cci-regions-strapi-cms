@@ -21,6 +21,7 @@
       "enum": [
         "ArrowRight",
         "ArrowUpRight",
+        "BoldRoundArrowRight",
         "CalendarDateLinear",
         "CalendarDays",
         "ClockCircleLinear",

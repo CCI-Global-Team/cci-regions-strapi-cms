@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_campaign_about_centres",
+  "info": {
+    "displayName": "AboutCentre",
+    "icon": "information"
+  },
+  "options": {},
+  "attributes": {
+    "sectionLabel": {
+      "type": "component",
+      "component": "global.section-label",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "contentMarkdown": {
+      "type": "richtext",
+      "required": true
+    },
+    "gallery": {
+      "type": "component",
+      "component": "campaign.media-gallery",
+      "repeatable": false
+    }
+  }
+}
