@@ -11,6 +11,7 @@ export interface CampaignAboutCentre extends Struct.ComponentSchema {
     gallery: Schema.Attribute.Component<'campaign.media-gallery', false>;
     sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
   };
 }
 
