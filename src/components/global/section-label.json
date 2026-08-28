@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_global_section_labels",
+  "info": {
+    "displayName": "SectionLabel",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "colorVariant": {
+      "type": "enumeration",
+      "enum": ["brand-red", "black", "white"],
+      "default": "black"
+    },
+    "decoration": {
+      "type": "enumeration",
+      "enum": ["none", "side-lines"],
+      "default": "none"
+    }
+  }
+}

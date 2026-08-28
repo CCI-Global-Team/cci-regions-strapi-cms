@@ -521,14 +521,22 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
     city: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    country: Schema.Attribute.Enumeration<['Canada']> &
+    country: Schema.Attribute.Enumeration<
+      [
+        'Australia',
+        'Canada',
+        'Nigeria',
+        'United States of America',
+        'United Kingdom',
+      ]
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }> &
       Schema.Attribute.DefaultTo<'Canada'>;
@@ -544,7 +552,7 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
     googleMapUrl: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -569,11 +577,8 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
-      }> &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 6;
       }>;
     province: Schema.Attribute.Enumeration<
       [
@@ -590,12 +595,62 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
         'Quebec',
         'Saskatchewan',
         'Yukon',
+        'Alabama',
+        'Alaska',
+        'Arizona',
+        'Arkansas',
+        'California',
+        'Colorado',
+        'Connecticut',
+        'Delaware',
+        'Florida',
+        'Georgia',
+        'Hawaii',
+        'Idaho',
+        'Illinois',
+        'Indiana',
+        'Iowa',
+        'Kansas',
+        'Kentucky',
+        'Louisiana',
+        'Maine',
+        'Maryland',
+        'Massachusetts',
+        'Michigan',
+        'Minnesota',
+        'Mississippi',
+        'Missouri',
+        'Montana',
+        'Nebraska',
+        'Nevada',
+        'New Hampshire',
+        'New Jersey',
+        'New Mexico',
+        'New York',
+        'North Carolina',
+        'North Dakota',
+        'Ohio',
+        'Oklahoma',
+        'Oregon',
+        'Pennsylvania',
+        'Rhode Island',
+        'South Carolina',
+        'South Dakota',
+        'Tennessee',
+        'Texas',
+        'Utah',
+        'Vermont',
+        'Virginia',
+        'Washington',
+        'West Virginia',
+        'Wisconsin',
+        'Wyoming',
       ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -805,6 +860,69 @@ export interface ApiBankBank extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBuildingProjectPageBuildingProjectPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'building_project_page';
+  info: {
+    displayName: 'BuildingProjectPage';
+    pluralName: 'building-project-pages';
+    singularName: 'building-project-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    campus: Schema.Attribute.Relation<'manyToOne', 'api::campus.campus'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'section.hero', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::building-project-page.building-project-page'
+    >;
+    pageName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'BuildingProjectPage'>;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      [
+        'campaign.progress',
+        'campaign.about-centre',
+        'campaign.participation',
+        'campaign.giving-plans',
+        'campaign.share-strip',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -3001,6 +3119,7 @@ declare module '@strapi/strapi' {
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
       'api::announcements-page.announcements-page': ApiAnnouncementsPageAnnouncementsPage;
       'api::bank.bank': ApiBankBank;
+      'api::building-project-page.building-project-page': ApiBuildingProjectPageBuildingProjectPage;
       'api::campus.campus': ApiCampusCampus;
       'api::community-page.community-page': ApiCommunityPageCommunityPage;
       'api::connect-page.connect-page': ApiConnectPageConnectPage;
