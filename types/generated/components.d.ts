@@ -1,5 +1,243 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CampaignAboutCentre extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_about_centres';
+  info: {
+    displayName: 'AboutCentre';
+    icon: 'information';
+  };
+  attributes: {
+    contentMarkdown: Schema.Attribute.RichText & Schema.Attribute.Required;
+    gallery: Schema.Attribute.Component<'campaign.media-gallery', false>;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface CampaignDuration extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_durations';
+  info: {
+    displayName: 'Duration';
+    icon: 'calendar';
+  };
+  attributes: {
+    count: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    labelOverride: Schema.Attribute.String;
+    unit: Schema.Attribute.Enumeration<['day', 'week', 'month', 'year']> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface CampaignFrequency extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_frequencies';
+  info: {
+    displayName: 'Frequency';
+    icon: 'clock';
+  };
+  attributes: {
+    interval: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    labelOverride: Schema.Attribute.String;
+    unit: Schema.Attribute.Enumeration<['day', 'week', 'month', 'year']> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface CampaignGivingPlan extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_giving_plans';
+  info: {
+    displayName: 'GivingPlan';
+    icon: 'gift';
+  };
+  attributes: {
+    action: Schema.Attribute.Component<'global.button', false>;
+    amount: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    badgeText: Schema.Attribute.String & Schema.Attribute.Required;
+    caption: Schema.Attribute.String;
+    currency: Schema.Attribute.Enumeration<
+      [
+        'CAD',
+        'USD',
+        'NGN',
+        'GBP',
+        'EUR',
+        'MXN',
+        'BRL',
+        'PLN',
+        'NZD',
+        'GHS',
+        'KES',
+        'ZWL',
+        'ZAR',
+        'UGX',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'CAD'>;
+    description: Schema.Attribute.Text;
+    duration: Schema.Attribute.Component<'campaign.duration', false>;
+    frequency: Schema.Attribute.Component<'campaign.frequency', false> &
+      Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
+    totalAmount: Schema.Attribute.Decimal;
+    totalLabel: Schema.Attribute.String;
+  };
+}
+
+export interface CampaignGivingPlans extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_giving_plans_sections';
+  info: {
+    displayName: 'GivingPlans';
+    icon: 'list';
+  };
+  attributes: {
+    plans: Schema.Attribute.Component<'campaign.giving-plan', true> &
+      Schema.Attribute.Required;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CampaignMediaGallery extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_media_galleries';
+  info: {
+    displayName: 'MediaGallery';
+    icon: 'landscape';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'campaign.media-item', true> &
+      Schema.Attribute.Required;
+    layout: Schema.Attribute.Enumeration<
+      ['auto', 'single', 'grid', 'carousel']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'auto'>;
+  };
+}
+
+export interface CampaignMediaItem extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_media_items';
+  info: {
+    displayName: 'MediaItem';
+    icon: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    caption: Schema.Attribute.String;
+    externalVideoUrl: Schema.Attribute.String;
+    isPrimary: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    media: Schema.Attribute.Media<'images' | 'videos'>;
+    mediaType: Schema.Attribute.Enumeration<['image', 'video']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'image'>;
+    order: Schema.Attribute.Integer;
+    poster: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface CampaignParticipation extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_participations';
+  info: {
+    displayName: 'Participation';
+    icon: 'user';
+  };
+  attributes: {
+    committedCount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    committedLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'pledged'>;
+    dotGridVariant: Schema.Attribute.Enumeration<['pulse', 'fade', 'none']> &
+      Schema.Attribute.DefaultTo<'none'>;
+    footerText: Schema.Attribute.Text;
+    remainingLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'still needed'>;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
+    showDotGrid: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.String;
+    targetCount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+    unitLabelPlural: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'people'>;
+    unitLabelSingular: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'person'>;
+  };
+}
+
+export interface CampaignProgress extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_progresses';
+  info: {
+    displayName: 'Progress';
+    icon: 'trending-up';
+  };
+  attributes: {
+    actions: Schema.Attribute.Component<'global.button', true>;
+    campaignEndDate: Schema.Attribute.DateTime;
+    currency: Schema.Attribute.Enumeration<
+      [
+        'CAD',
+        'USD',
+        'NGN',
+        'GBP',
+        'EUR',
+        'MXN',
+        'BRL',
+        'PLN',
+        'NZD',
+        'GHS',
+        'KES',
+        'ZWL',
+        'ZAR',
+        'UGX',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'CAD'>;
+    goalAmount: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    pledgeCount: Schema.Attribute.Integer;
+    progressLabel: Schema.Attribute.String;
+    raisedAmount: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    sectionLabel: Schema.Attribute.Component<'global.section-label', false>;
+    showCountdown: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    showProgressBar: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    titleBranded: Schema.Attribute.String;
+  };
+}
+
+export interface CampaignShareStrip extends Struct.ComponentSchema {
+  collectionName: 'components_campaign_share_strips';
+  info: {
+    displayName: 'ShareStrip';
+    icon: 'share';
+  };
+  attributes: {
+    enableCopyLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    enableEmail: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    enableNativeShare: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    label: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Share Campaign'>;
+    shareText: Schema.Attribute.Text;
+    shareTitle: Schema.Attribute.String;
+  };
+}
+
 export interface EventEventActionCard extends Struct.ComponentSchema {
   collectionName: 'components_event_event_action_cards';
   info: {
@@ -174,6 +412,7 @@ export interface GlobalButton extends Struct.ComponentSchema {
       [
         'ArrowRight',
         'ArrowUpRight',
+        'BoldRoundArrowRight',
         'CalendarDateLinear',
         'CalendarDays',
         'ClockCircleLinear',
@@ -253,6 +492,7 @@ export interface GlobalIconText extends Struct.ComponentSchema {
       [
         'ArrowRight',
         'ArrowUpRight',
+        'BoldRoundArrowRight',
         'CalendarDateLinear',
         'CalendarDays',
         'ClockCircleLinear',
@@ -283,6 +523,23 @@ export interface GlobalIconText extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     label: Schema.Attribute.String;
     labelColor: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalSectionLabel extends Struct.ComponentSchema {
+  collectionName: 'components_global_section_labels';
+  info: {
+    displayName: 'SectionLabel';
+    icon: 'quote';
+  };
+  attributes: {
+    colorVariant: Schema.Attribute.Enumeration<
+      ['brand-red', 'black', 'white']
+    > &
+      Schema.Attribute.DefaultTo<'black'>;
+    decoration: Schema.Attribute.Enumeration<['none', 'side-lines']> &
+      Schema.Attribute.DefaultTo<'none'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -678,6 +935,16 @@ export interface SectionWhatToExpect extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'campaign.about-centre': CampaignAboutCentre;
+      'campaign.duration': CampaignDuration;
+      'campaign.frequency': CampaignFrequency;
+      'campaign.giving-plan': CampaignGivingPlan;
+      'campaign.giving-plans': CampaignGivingPlans;
+      'campaign.media-gallery': CampaignMediaGallery;
+      'campaign.media-item': CampaignMediaItem;
+      'campaign.participation': CampaignParticipation;
+      'campaign.progress': CampaignProgress;
+      'campaign.share-strip': CampaignShareStrip;
       'event.event-action-card': EventEventActionCard;
       'event.event-brochure': EventEventBrochure;
       'event.event-engage': EventEventEngage;
@@ -689,6 +956,7 @@ declare module '@strapi/strapi' {
       'global.button': GlobalButton;
       'global.connect-card': GlobalConnectCard;
       'global.icon-text': GlobalIconText;
+      'global.section-label': GlobalSectionLabel;
       'global.styles': GlobalStyles;
       'global.text': GlobalText;
       'global.text-block': GlobalTextBlock;

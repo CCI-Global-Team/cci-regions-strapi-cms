@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_campaign_giving_plans_sections",
+  "info": {
+    "displayName": "GivingPlans",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "sectionLabel": {
+      "type": "component",
+      "component": "global.section-label",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "plans": {
+      "type": "component",
+      "component": "campaign.giving-plan",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}
