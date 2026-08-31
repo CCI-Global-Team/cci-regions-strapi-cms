@@ -746,6 +746,7 @@ export interface SectionLocations extends Struct.ComponentSchema {
     campusSubtitle: Schema.Attribute.Text;
     cellChurchLabel: Schema.Attribute.String;
     cellChurchSubtitle: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
     provinceLabel: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
