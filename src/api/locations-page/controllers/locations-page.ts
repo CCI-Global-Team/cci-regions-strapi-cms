@@ -10,6 +10,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
     const response = await super.find(ctx);
 
     const campuses = await strapi.documents('api::campus.campus').findMany({
+      status: "published",
       where: {
         type: 'campus'
       },
@@ -18,6 +19,7 @@ export default factories.createCoreController('api::locations-page.locations-pag
     });
 
     const cellChurches = await strapi.documents('api::campus.campus').findMany({
+      status: "published",
       where: {
         type: 'cell-church'
       },
