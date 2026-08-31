@@ -21,13 +21,22 @@
     "cellChurchSubtitle": {
       "type": "text"
     },
-    "campusTabLabel": {
+    "campusLabel": {
       "type": "string",
-      "required": true
+      "required": false
     },
-    "cellChurchTabLabel": {
+    "cellChurchLabel": {
       "type": "string",
-      "required": true
+      "required": false
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "provinceLabel": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   },
   "config": {}

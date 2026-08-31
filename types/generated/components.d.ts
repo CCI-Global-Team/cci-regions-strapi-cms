@@ -742,10 +742,13 @@ export interface SectionLocations extends Struct.ComponentSchema {
   };
   attributes: {
     badge: Schema.Attribute.Component<'global.badge', false>;
+    campusLabel: Schema.Attribute.String;
     campusSubtitle: Schema.Attribute.Text;
-    campusTabLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    cellChurchLabel: Schema.Attribute.String;
     cellChurchSubtitle: Schema.Attribute.Text;
-    cellChurchTabLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    provinceLabel: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
