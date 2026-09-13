@@ -645,6 +645,18 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
         'West Virginia',
         'Wisconsin',
         'Wyoming',
+        'East Midlands',
+        'East of England',
+        'London',
+        'North East',
+        'North West',
+        'Northern Ireland',
+        'Scotland',
+        'South East',
+        'South West',
+        'Wales',
+        'West Midlands',
+        'Yorkshire and the Humber',
       ]
     > &
       Schema.Attribute.Required &
