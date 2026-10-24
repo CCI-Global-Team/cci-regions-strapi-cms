@@ -170,7 +170,11 @@
         "Canada",
         "Nigeria",
         "United States of America",
-        "United Kingdom"
+        "United Kingdom",
+        "Ireland",
+        "Netherlands",
+        "Germany",
+        "Finland"
       ]
     },
     "googleMapUrl": {
