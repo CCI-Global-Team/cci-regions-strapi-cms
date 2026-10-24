@@ -531,6 +531,10 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
         'Nigeria',
         'United States of America',
         'United Kingdom',
+        'Ireland',
+        'Netherlands',
+        'Germany',
+        'Finland',
       ]
     > &
       Schema.Attribute.Required &
