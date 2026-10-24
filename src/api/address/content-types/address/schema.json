@@ -140,7 +140,11 @@
         "South West",
         "Wales",
         "West Midlands",
-        "Yorkshire and the Humber"
+        "Yorkshire and the Humber",
+        "Ireland",
+        "Netherlands",
+        "Germany",
+        "Finland"
       ]
     },
     "postalCode": {

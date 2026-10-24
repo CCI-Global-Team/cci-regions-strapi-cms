@@ -657,6 +657,10 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
         'Wales',
         'West Midlands',
         'Yorkshire and the Humber',
+        'Ireland',
+        'Netherlands',
+        'Germany',
+        'Finland',
       ]
     > &
       Schema.Attribute.Required &
